@@ -1,0 +1,5 @@
+* text=auto
+*.scss linguist-vendored
+vendor/* linguist-vendored
+public/vendor/*
+CHANGELOG.md export-ignore

@@ -1,0 +1,413 @@
+/* Make footer stick to bottom */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0; /* bottom = footer height */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin: auto auto 0 auto;
+    width: 100%;
+    color: white;
+    z-index: 2;
+}
+
+header {
+    background-color: #FFF;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0.1em #555;
+}
+
+/* Remove dropdown arrow, keep for now */
+select {
+    /*for firefox*/
+    -moz-appearance: none;
+    /*for chrome*/
+    -webkit-appearance:none;
+}
+
+/*for IE10*/
+select::-ms-expand {
+    display: none;
+}
+
+label {
+    color: #08306C;
+}
+
+
+/* End make footer stick to bottom */
+
+.formError {
+    border-color: red;
+    box-shadow: 0 0 0.5em #ff7777;
+}
+
+#displayErrors {
+    color: red;
+    margin-right: 40px;
+}
+
+.formIssue {
+    color: red;
+    text-align: center;
+}
+
+#loginError {
+    color: red;
+    text-align: center;
+}
+
+.sidebar-panel {
+    height: 95%;
+    position: absolute;
+    width: 15%;
+    top: 4%;
+}
+
+.app {
+    margin-left: 15%;
+}
+
+.navbar-right {
+    margin-right: 0;
+}
+
+.addButtonSchedule {
+    background-color: #50A1D3;
+}
+
+.footer-left {
+    padding-left: 4%;
+}
+
+.business-navbar {
+    color: #555;
+    background-color: #08306C;
+    text-decoration: none;
+    height: 100%;
+    width: 15%;
+    position: absolute;
+    z-index: 0;
+    float: left;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-x: hidden;
+}
+
+.business-navbar li a {
+    color: #FFF;
+}
+
+.business-navbar li a:hover {
+    display: block;
+    color: white;
+    background-color: #0a5579;
+}
+
+.main-panel {
+    padding-top: 10px;
+}
+
+.btn {
+    color: white;
+    background-color: #08306C;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    border-radius: 0;
+}
+
+.user-nav {
+    padding-right: 20px;
+}
+
+.dropdown-menu li a {
+    background-color: white;
+}
+
+#drop-post {
+    width: 10px;
+}
+
+#serviceName {
+    font-style: italic;
+    color: black;
+}
+
+#post-menu:active {
+    background-color: white;
+}
+
+#image {
+    border-style: none;
+    width: 100%;
+}
+
+/*-----
+    for image upload
+ */
+
+.files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 17px 0px 48px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+}
+.files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+}
+.files{ position:relative}
+.files:after {  pointer-events: none;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url('../img/add.png');
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.color input{ background-color:#f1f1f1;}
+.files:before {
+    position: absolute;
+    bottom: 10px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+/* Modal forms */
+.form-style-base{
+    top: 0;
+    z-index: 999;
+    opacity: 0;
+}
+
+.modal-body{
+    color: #08306C !important;
+    background: #ECEEF2;
+}
+
+.modal-header{
+    background: #08306C;
+}
+
+.filebrd {
+    border: 1px solid #08306C;
+    background: #fff;
+}
+  
+.widget {
+    text-align: center;
+}
+
+a[data-likes]::after {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+
+    content: attr(data-likes);
+    position: relative;
+    left: -0.75em;
+    top: 0.4em;
+}
+
+.post {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1%;
+}
+
+.post p, .post span {
+    color: #333;
+    overflow-wrap: break-word;
+}
+
+.post-comments {
+    display: flex;
+    flex-direction: column;   
+}
+
+.post-preview {
+    cursor: pointer;
+}
+
+.comment-composer {
+    display : flex;
+    margin: 1em 0em;
+    flex-direction: column;
+}
+
+.comment-composer-text {
+    border: none;
+    flex-grow: 1;
+    padding: 0.75em;
+    background-color: white;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 8px 8px 0 0;
+    cursor: text;
+    white-space: pre-wrap;
+}
+
+.comment-composer-text:not(:empty) {
+    min-height: 5em;
+}
+
+.comment-composer-text:focus {
+    outline: none;
+    box-sizing: border-box;
+    min-height: 5em;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+    border-color: #777;
+    border-radius: 6px 6px 0 0;
+}
+
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    opacity: 0.5;
+    display: block;
+}
+
+.comment-composer .btn {
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 0 0 6px 6px;
+    flex-direction: row;
+}
+
+.commenter {
+    vertical-align: center;
+}
+
+.single-comment p {
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+.comment-time {
+    font-size: 0.75em;
+    opacity: 0.75;
+}
+
+#addPost{
+    background-color: white;
+}
+
+.fa-star-half {
+    color:#EEC106;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+    border: none;
+    float: left;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating > .half:before {
+    content: "\f089";
+    position: absolute;
+}
+
+.rating > label {
+    color: #ddd;
+    float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+
+.dropbtn {
+    background-color: #08306C;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
