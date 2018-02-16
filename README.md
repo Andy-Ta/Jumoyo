@@ -12,7 +12,7 @@ https://drive.google.com/drive/folders/1l7Jn1RaZS8Dt_j4_ZnXtCXS0gFj4V4tU
 
 ### Database Migration
 Import the sql in database/migration to your local database called Jumoyo with utf8_general_ci character encoding (delete previous Jumoyo database, if already exists).
-If not already done, create an account username: Jumoyo and password: Jumoyo with all permissions.
+If not already done, create an account username: Jumoyo and password: Jumoyo17 with all permissions.
 
 ### Team
 Andy Ta  

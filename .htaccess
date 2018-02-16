@@ -3,5 +3,3 @@
     RewriteCond %{REQUEST_URI} !^public
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
-
-RewriteRule ^syndeeo2017$ ./public/syndeeo2017/index.php
