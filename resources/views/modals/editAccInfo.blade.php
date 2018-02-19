@@ -43,22 +43,28 @@
         <div class="modal-content modalwidth">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Change Image</h4>
+                <h4 class="modal-title">Modify Account Image</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <!--<div class="col-md-12">-->
                     <form action="/changeAccImg" method="post" id="changeAccImgForm" enctype="multipart/form-data">
                         <div class="form-group files">
-                            <label>Image</label>
+                            <label>Select A New Image</label>
                             <div class="filebrd">
                                 <input type="file" name="accountimg" id="accountimg" class="form-style-base"
                                        accept="image/gif, image/jpeg, image/png" required>
                             </div>
                         </div>
-                        <input type="submit" id="changeAccImgBtn" name="changeAccImgBtn" class="btn btn-default" value="CHANGE"/>
+                        <input type="submit" id="changeAccImgBtn" name="changeAccImgBtn"
+                               class="btn btn-default" value="SAVE THE NEW IMAGE"/>
+                        <br>
+                        <a class="btn btn-danger" data-toggle="modal"
+                           data-target="#deleteAccImgModal" data-dismiss="modal" id="removeAccImage"
+                           name="removeAccImage">DELETE CURRENT IMAGE</a>
                         <br>
                         <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
+                        <br>
                         <div id="changeImgError" style="color: red; margin-right: 40px;"></div>
                     </form>
                 </div>
