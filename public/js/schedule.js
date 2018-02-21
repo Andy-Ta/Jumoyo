@@ -46,10 +46,10 @@ $(document).ready(function () {
         header: {
             left: 'prev,next today',
             center: 'title',
-            right: 'agendaWeek,agendaDay'
+            right: 'month,agendaWeek,agendaDay'
         },
         //right: 'month,agendaWeek,agendaDay,listMonth'
-        defaultView: 'agendaDay',
+        defaultView: 'agendaWeek',
         defaultDate: output,
         navLinks: true, // can click day/week names to navigate views
         //businessHours: true, // display business hours
