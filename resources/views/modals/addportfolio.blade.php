@@ -6,7 +6,7 @@
         <div class="modal-content modalwidth">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">ADD</h4>
+                <h4 class="modal-title">Add to portfolio</h4>
             </div>
             <form method="post" action="#" id="addPortfolioForm" enctype="multipart/form-data">
                 <div class="modal-body">
@@ -34,8 +34,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-default modelfooter"/>
-                    <button type="button" class="btn btn-default modelfooter" data-dismiss="modal">CANCEL</button>
+                    <input type="submit" class="btn btn-primary modelfooter" value="ADD">
+                    <br>
+                    <button type="button" class="btn btn-warning modelfooter" data-dismiss="modal">CANCEL</button>
                 </div>
             </form>
         </div>
