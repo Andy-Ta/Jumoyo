@@ -1,4 +1,14 @@
 $(function() {
+    $("*[data-moment-format]").each(function (id, item) {
+        var d;
+        if ($(item).is('[data-post-time]')) {
+            d = $(item).attr('data-post-time');
+        }
+        momentdate = moment.utc(d);
+        momentdate.local();
+        $(item).text(momentdate.format($(item).attr('data-moment-format')));
+    });
+
     $("form#postForm").submit(function(e) {
         e.preventDefault();
         $(".showErr").hide();

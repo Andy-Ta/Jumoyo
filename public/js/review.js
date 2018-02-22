@@ -51,12 +51,3 @@ $(function() {
         });
     });
 });
-
-function transformTime(date, hour, format) {
-    datemoment = date? moment(date) : moment();
-    hourtime = hour? moment(hour) : moment();
-    datemoment.hours(hourtime.hours());
-    datemoment.minutes(hourtime.minutes());
-    datemoment.local();
-    return datemoment.format(format);
-}

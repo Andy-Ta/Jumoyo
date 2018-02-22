@@ -137,6 +137,10 @@ label {
     width: 10px;
 }
 
+.post-icons {
+    text-align: left;
+}
+
 #serviceName {
     font-style: italic;
     color: black;
@@ -247,7 +251,7 @@ a[data-likes]::after {
 
 .post {
     display: flex;
-    text-align: left;
+    text-align: center;
     flex-direction: column;
     width: 100%;
     margin-top: 1%;

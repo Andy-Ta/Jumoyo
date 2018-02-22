@@ -19,7 +19,7 @@
                     @endif
                     @foreach ($data as $value)
                     <div class="widget bg-white post" style="background-color: white;">
-                        <p>Published: {{ $value->date_time }} on <i>{{ $value->name }}</i></p>
+                        <span class="post-time" data-moment-format="YYYY-MM-DD H:mm" data-post-time="{{ $value->date_time }}"></span>
                         <span class="widget-title" id="postTitle">{{ $value->title }}</span>
                         <p>{{ $value->text }} <br><br>
 
@@ -68,6 +68,7 @@
 </div>
 
 <script src="{{ URL::asset('js/post.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/india/scripts/moment.min.js') }}"></script>
 
 <!-- POST MODAL -->
 @include('modals.post')
