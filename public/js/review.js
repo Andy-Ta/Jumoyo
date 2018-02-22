@@ -4,7 +4,7 @@ $(function() {
         if ($(item).is('[data-comment-time]')) {
             d = $(item).attr('data-comment-time');
         }
-        momentdate = moment(d);
+        momentdate = moment.utc(d);
         momentdate.local();
         $(item).text(momentdate.format($(item).attr('data-moment-format')));
     });
