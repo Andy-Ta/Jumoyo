@@ -181,7 +181,7 @@
                             @endif
                         </span>
                 <p>{{ $value->text }}</p>
-                <span>{{ $value->date_time }}</span>
+                <span class="comment-time" data-moment-format="YYYY-MM-DD H:mm" data-comment-time="{{ $value->date_time }}"></span>
                 @if(session('id') == $value->reviewer_id)
                 <span><br><a href="/delete/{{ $value->review_id }}" id="deleteReview">Delete</a></span>
                 @endif
@@ -214,6 +214,7 @@
 
 <script src="{{ URL::asset('js/singleProduct.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/review.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/india/scripts/moment.min.js') }}"></script>
 <script type="text/javascript">
     days = '{{ $service->days }}';
     start = '{{ $service->start_time }}';

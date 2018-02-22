@@ -19,8 +19,8 @@
                     @endif
                     @foreach ($data as $value)
                     <div class="widget bg-white post" style="background-color: white;">
+                        <p>Published: {{ $value->date_time }} on <i>{{ $value->name }}</i></p>
                         <span class="widget-title" id="postTitle">{{ $value->title }}</span>
-                        <p id="serviceName">{{ $value->name }}</p>
                         <p>{{ $value->text }} <br><br>
 
                             @if ($value->url != null)
@@ -44,16 +44,6 @@
                                 <li><a href="/business/post/delete/{{ $value->posts_id }}">Delete</a></li>
                             </ul>
                         </div>
-                        <!--
-                        TO-DO FOR FUTURE TASK
-
-                        <div class="post-user">
-                            <div class="post-user-icon">
-                                <img src="images/face4.cea90747.jpg">
-                            </div>
-                            <span> User /  Reviewer Name</span>
-                        </div>
-                            -->
                     </div>
                     @endforeach
                 </div>

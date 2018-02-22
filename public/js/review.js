@@ -1,4 +1,14 @@
 $(function() {
+    $("*[data-moment-format]").each(function (id, item) {
+        var d;
+        if ($(item).is('[data-comment-time]')) {
+            d = $(item).attr('data-comment-time');
+        }
+        momentdate = moment(d);
+        momentdate.local();
+        $(item).text(momentdate.format($(item).attr('data-moment-format')));
+    });
+
     $("#reviewBtn").click(function() {
         var serviceId = $(this).attr("data-serviceId");
 
@@ -41,3 +51,12 @@ $(function() {
         });
     });
 });
+
+function transformTime(date, hour, format) {
+    datemoment = date? moment(date) : moment();
+    hourtime = hour? moment(hour) : moment();
+    datemoment.hours(hourtime.hours());
+    datemoment.minutes(hourtime.minutes());
+    datemoment.local();
+    return datemoment.format(format);
+}

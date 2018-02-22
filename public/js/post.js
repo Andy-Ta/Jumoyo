@@ -1,5 +1,4 @@
 $(function() {
-
     $("form#postForm").submit(function(e) {
         e.preventDefault();
         $(".showErr").hide();

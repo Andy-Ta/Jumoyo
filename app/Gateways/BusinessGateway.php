@@ -295,7 +295,7 @@ class BusinessGateway
         return DB::table('contacts')->where('id', $contactID)->delete();
     }
 
-    public function addPost($title, $service, $text, $url, $image)
+    public function addPost($title, $service, $text, $url, $image, $time)
     {
         if (!empty($url)) {
             preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i',
@@ -306,7 +306,7 @@ class BusinessGateway
 
 
         return DB::table('posts')->insert(
-            array("service_id" => $service, "title" => $title, "text" => $text, "url" => $url, "image" => $image)
+            array("service_id" => $service, "title" => $title, "text" => $text, "url" => $url, "image" => $image, "date_time" => $time)
         );
     }
 
@@ -315,7 +315,8 @@ class BusinessGateway
         $businessId = DB::table('businesses')->where('client', session()->get('id'))->get()->first()->id;
 
         return DB::select('SELECT services.id AS services_id, services.name, services.category,
-                                  posts.title, posts.id AS posts_id, posts.text, posts.url, posts.image FROM posts 
+                                  posts.title, posts.id AS posts_id, posts.text, posts.url, posts.image, posts.date_time 
+                                  FROM posts 
         INNER JOIN services ON posts.service_id = services.id WHERE services.business = ' . $businessId . ';');
     }
 
