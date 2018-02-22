@@ -11,7 +11,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <div class="icon-addon addon-sm" style="border: 1px solid #fff;border-radius: 5px;">
-                                <input type="text" name="name" placeholder="Search" class="form-control" style="background: transparent;color:#fff;" id="name">
+                                <input type="text" name="name" placeholder="What service are you looking for?" class="form-control" style="background: transparent;color:#fff;" id="name">
                                 <label for="name" class="glyphicon glyphicon-search" rel="tooltip" title="name" style="color: white;"></label>
                             </div>
                         </div>

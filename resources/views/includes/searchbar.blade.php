@@ -6,7 +6,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <div class="icon-addon addon-sm icon-addon-brd">
-                            <input type="text" placeholder="Search" class="form-control searchaddon" id="name" name="name">
+                            <input type="text" placeholder="What service are you looking for?" class="form-control searchaddon" id="name" name="name">
                             <label for="name" class="glyphicon glyphicon-search" rel="tooltip" title="name" style="color: white;"></label>
                         </div>
                     </div>
