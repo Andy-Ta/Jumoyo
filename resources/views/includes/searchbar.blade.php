@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="input-group">
-                        <input type="submit" class="btn btn-default" />
+                        <input type="submit" class="btn btn-default" value="Search"/>
                     </div>
                 </div>
                 <div class="col-md-3"></div>

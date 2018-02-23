@@ -16,10 +16,10 @@
                         <li><a href="/account" id="welcomeuser">
                                 @if(session('image') !== null )
                                     <img src="{{URL::asset(session('image'))}}" style="width: 1.5vh; margin-top: -6px;" class="header-avatar img-circle ml10" alt="user" title="user">
-                                    Welcome, {{ session('firstName') }}</a></li>
+                                    {{ session('firstName') }}</a></li>
                                 @else
                                     <img src="{{URL::asset('/img/review-icon.png')}}" style="width: 32px; margin-top: -6px;" class="header-avatar img-circle ml10" alt="user" title="user">
-                                    Welcome, {{ session('firstName') }}</a></li>
+                                    {{ session('firstName') }}</a></li>
                                 @endif
                         <li class="headerlipad">|</li>
                         <li>

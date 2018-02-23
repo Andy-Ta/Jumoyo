@@ -12,6 +12,7 @@ use App\Http\Requests\PostRequest;
 use App\Http\Requests\EditPostRequest;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\BusinessEditRequest;
+use DateTime;
 
 class BusinessController extends Controller
 {
@@ -62,6 +63,7 @@ class BusinessController extends Controller
     }
 
     public function post(PostRequest $request) {
+        $time = new DateTime();
         $title = $request->input('title');
         $text = $request->input('text');
         $url = $request->input('url');
@@ -89,7 +91,7 @@ class BusinessController extends Controller
 
         $image = $path;
 
-        if($this->businessGateway->addPost($title, $service, $text, $url, $image)) {
+        if($this->businessGateway->addPost($title, $service, $text, $url, $image, $time)) {
             return redirect('/business/post');
         }
         else

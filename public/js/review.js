@@ -1,4 +1,14 @@
 $(function() {
+    $("*[data-moment-format]").each(function (id, item) {
+        var d;
+        if ($(item).is('[data-comment-time]')) {
+            d = $(item).attr('data-comment-time');
+        }
+        momentdate = moment.utc(d);
+        momentdate.local();
+        $(item).text(momentdate.format($(item).attr('data-moment-format')));
+    });
+
     $("#reviewBtn").click(function() {
         var serviceId = $(this).attr("data-serviceId");
 

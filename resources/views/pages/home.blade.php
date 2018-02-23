@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="input-group">
-                            <input type="submit" class="btn btn-default" value="Search"></input>
+                            <input type="submit" class="btn btn-default" value="Search">
                         </div>
                     </div>
                 </form>
