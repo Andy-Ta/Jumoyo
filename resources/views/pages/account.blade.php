@@ -256,7 +256,7 @@
                                                value="{{ session('phone') }}">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <a class="btn btn-primary" data-toggle="modal"
+                                        <a class="btn btn-warning" data-toggle="modal"
                                            data-target="#changePswModal" id="changePsw" name="changePsw">Change
                                             Password</a>
                                     </div>

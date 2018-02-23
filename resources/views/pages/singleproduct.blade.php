@@ -117,19 +117,21 @@
         </div>
     </div>
 </div>
-<div class="container-fluid work-carousel">
-    <div class="container">
-        <div class="col-md-12">
-            <h2> Posts </h2>
-            @foreach ($data as $post)
-            <div class="widget bg-white overflow-hidden post post-preview" data-post-id="{{$post->post_id}}">
-                <span class="widget-title">{{ $post->title }}</span>
-                <p id="serviceName">{{ $post->name }}</p>
+@if(session()->get('id'))
+    <div class="container-fluid work-carousel">
+        <div class="container">
+            <div class="col-md-12">
+                <h2> Posts </h2>
+                @foreach ($data as $post)
+                    <div class="widget bg-white overflow-hidden post post-preview" data-post-id="{{$post->post_id}}">
+                        <span class="widget-title">{{ $post->title }}</span>
+                        <p id="serviceName">{{ $post->name }}</p>
+                    </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
-</div>
+@endif
 <div class="container-fluid work-carousel">
     <div class="container">
         <div class="col-xs-12">
