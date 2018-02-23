@@ -7,9 +7,9 @@
         <div class="col-md-12 panelpad">
             <div class="tabbable">
                 <ul class="nav nav-pills nav-stacked col-md-3">
-                    <li class="active"><a href="#a" data-toggle="tab">Booking</a></li>
-                    <li><a href="#b" data-toggle="tab">Favorite</a></li>
-                    <li><a href="#c" data-toggle="tab">Review</a></li>
+                    <li class="active"><a href="#a" data-toggle="tab">Bookings</a></li>
+                    <li><a href="#b" data-toggle="tab">Favorites</a></li>
+                    <li><a href="#c" data-toggle="tab">Reviews</a></li>
                     <li><a href="#d" data-toggle="tab">Account</a></li>
                 </ul>
                 <div class="tab-content col-md-9">
@@ -18,7 +18,7 @@
                     <div class="tab-pane active" id="a">
                         <div class="row">
                             <div class="col-xs-12 tab-head">
-                                <h2>Booking</h2>
+                                <h2>Bookings</h2>
                             </div>
                         </div>
                         @if(count($bookings) == 0)
@@ -170,7 +170,7 @@
                     <div class="tab-pane fade" id="c">
                         <div class="row">
                             <div class="col-xs-12 tab-head">
-                                <h2>Review</h2>
+                                <h2>Reviews</h2>
                             </div>
                             <div class="col-md-12">
                                 <div class="tab-content">
