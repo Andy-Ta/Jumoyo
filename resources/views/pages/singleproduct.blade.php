@@ -42,6 +42,13 @@
                             </a>
                         </div>
                     @endif
+                @else
+                    <div class="single-follow">
+                        <a onclick="followLoginAlert()" href="#" title="Please log in to follow.">
+                            <span class="glyphicon glyphicon-heart-empty"
+                                      style="font-size: 200%;"></span>
+                        </a>
+                    </div>
                 @endif
             </div>
             <div class="clearfix"></div>
@@ -93,32 +100,38 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="right-details">
-                    @if(!session()->get('id')) Please log in to book. @endif
-                    <a href="#">
-                        <button @if(!session()->get('id')) disabled @endif
-                            id="bookbtn" class="btn btn-primary bookbtn bootbutton"
-                            data="{{$service->service_id}}">Book Service
-                        </button>
-                    </a>
+                    @if(!session()->get('id'))
+                        <a href="#" title="Please log in to book.">
+                            <button onclick="bookLoginAlert()" class="btn btn-primary bookbtn bootbutton">Book Service</button>
+                        </a>
+                    @else
+                        <a href="#" title="Book the service now.">
+                            <button id="bookbtn" class="btn btn-primary bookbtn bootbutton"
+                                    data="{{$service->service_id}}">Book Service
+                            </button>
+                        </a>
+                    @endif
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
 </div>
-<div class="container-fluid work-carousel">
-    <div class="container">
-        <div class="col-md-12">
-            <h2> Posts </h2>
-            @foreach ($data as $post)
-            <div class="widget bg-white overflow-hidden post post-preview" data-post-id="{{$post->post_id}}">
-                <span class="widget-title">{{ $post->title }}</span>
-                <p id="serviceName">{{ $post->name }}</p>
+@if(session()->get('id'))
+    <div class="container-fluid work-carousel">
+        <div class="container">
+            <div class="col-md-12">
+                <h2> Posts </h2>
+                @foreach ($data as $post)
+                    <div class="widget bg-white overflow-hidden post post-preview" data-post-id="{{$post->post_id}}">
+                        <span class="widget-title">{{ $post->title }}</span>
+                        <p id="serviceName">{{ $post->name }}</p>
+                    </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
-</div>
+@endif
 <div class="container-fluid work-carousel">
     <div class="container">
         <div class="col-xs-12">
@@ -218,5 +231,13 @@
     days = '{{ $service->days }}';
     start = '{{ $service->start_time }}';
     end = '{{ $service->end_time }}';
+
+    function followLoginAlert() {
+        alert("Please log in to follow.");
+    }
+
+    function bookLoginAlert() {
+        alert("Please log in to book the service.");
+    }
 </script>
 @stop
