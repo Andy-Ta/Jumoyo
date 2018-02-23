@@ -42,6 +42,18 @@
                             </a>
                         </div>
                     @endif
+                @else
+                    <div class="single-follow">
+                        <a onclick="loginAlert()" href="#" title="Please log in to follow!">
+                            <script>
+                                function loginAlert() {
+                                    alert("Please log in to follow!");
+                                }
+                            </script>
+                            <span class="glyphicon glyphicon-heart-empty"
+                                      style="font-size: 200%;"></span>
+                        </a>
+                    </div>
                 @endif
             </div>
             <div class="clearfix"></div>
