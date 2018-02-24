@@ -7,15 +7,15 @@ use Exception;
 
 class BusinessGateway
 {
-    public function register($name, $address, $city, $postalCode, $country, $state)
+    public function register($name, $address, $city, $postalCode, $country, $state, $phoneNumber)
     {
         return DB::table('businesses')->insert(
             array("name" => $name, "address" => $address, "city" => $city, "postal_code" => $postalCode, "country" => $country,
-                "state" => $state, "client" => session()->get('id'))
+                "state" => $state, "phone_number" => $phoneNumber ,"client" => session()->get('id'))
         );
     }
 
-    public function editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $facebook, $twitter, $instagram) {
+    public function editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $phone_number , $facebook, $twitter, $instagram) {
         return DB::table('businesses')->
             where('id', $id)->
                 update(array(
@@ -24,6 +24,7 @@ class BusinessGateway
                     "city" => $city,
                     "postal_code" => $postal_code,
                     "state" => $state,
+                    "phone_number" => $phone_number,
                     "country" => $country
                     )
                 );
