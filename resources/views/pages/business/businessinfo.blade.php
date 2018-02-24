@@ -11,7 +11,7 @@
                 <div id="displayErrors" style="text-align: center;">
                 </div>
                 <div class="col-md-6 form-group">
-                    <label>Name</label>
+                    <label>Business Name</label>
                     <input type="text" class="form-control" id="name" name="name" value = "{{$business->name}}"/>
                 </div>
                 <div class="col-md-6 form-group">
@@ -33,6 +33,10 @@
                 <div class="col-md-6 form-group">
                     <label>Country</label>
                     <input type="text" class="form-control" id="country" name="country" value = "{{$business->country}}"/>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label>Phone Number</label>
+                    <input type="text" class="form-control" id="phone_number" name="phone_number" value = "{{$business->phone_number}}"/>
                 </div>
                 <!--
                 <div class="col-md-6 form-group">

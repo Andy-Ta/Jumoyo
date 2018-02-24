@@ -29,8 +29,9 @@ class BusinessController extends Controller
         $postalCode = $request->input('postal');
         $country = $request->input('country');
         $state = $request->input('state');
+        $phoneNumber= $request->input('phone');
 
-        if($this->businessGateway->register($name, $address, $city, $postalCode, $country, $state))
+        if($this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber))
             return response('Success.', 200);
         else
             return abort(400, "An error occurred during the registration.");
@@ -52,11 +53,12 @@ class BusinessController extends Controller
         $postal_code = $request->input('postal_code');
         $state = $request->input('state');
         $country = $request->input('country');
+        $phone_number = $request->input('phone_number');
         $facebook = $request->input('facebook');
         $twitter = $request->input('twitter');
         $instagram = $request->input('instagram');
 
-        if($this->businessGateway->editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $facebook, $twitter, $instagram))
+        if($this->businessGateway->editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $phone_number, $facebook, $twitter, $instagram))
             return response('Success.', 200);
         else
             return abort(400, "An error occurred during the update.");
