@@ -415,3 +415,7 @@ a[data-likes]::after {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.business:hover{
+    color: sandybrown;
+}

@@ -23,7 +23,11 @@
                                 @endif
                         <li class="headerlipad">|</li>
                         <li>
-                            <a href="/business">Business</a>
+                            @if(session()->has('businessid'))
+                                <a href="/business">Business</a>
+                            @else
+                                <a href="/business" class="business">Upgrade to Business</a>
+                            @endif
                         </li>
                         <li class="headerlipad linehide">|</li>
                         <li>
