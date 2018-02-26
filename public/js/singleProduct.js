@@ -11,53 +11,53 @@ $(function() {
         document.execCommand("insertHTML", false, toAdd);
     });
 
-    $(".post-preview").on("click", function (e) {
-        e.preventDefault();
-        // Load Post
-        var request = $.getJSON("/post/" + $(this).data("postId"));
+    // $(".post-preview").on("click", function (e) {
+    //     e.preventDefault();
+    //     // Load Post
+    //     var request = $.getJSON("/post/" + $(this).data("postId"));
 
-        request.done(function (data) {
-            displayComments(data[1]);
+    //     request.done(function (data) {
+    //         displayComments(data[1]);
            
-            // Change modal content
-            $("#view-post #postTitle").text(data[0].title);
-            $("#view-post #serviceName").text(data[0].name);
-            $("#view-post #postText").text(data[0].text);
+    //         // Change modal content
+    //         $("#view-post #postTitle").text(data[0].title);
+    //         $("#view-post #serviceName").text(data[0].name);
+    //         $("#view-post #postText").text(data[0].text);
             
-            if (data[0].url) {
-                var video = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data[0].url + ' " frameborder="0" allow="encrypted-media" allowfullscreen></iframe>');
-                $("#view-post #postText").append("<br>");
-                $("#view-post #postText").append(video);
+    //         if (data[0].url) {
+    //             var video = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + data[0].url + ' " frameborder="0" allow="encrypted-media" allowfullscreen></iframe>');
+    //             $("#view-post #postText").append("<br>");
+    //             $("#view-post #postText").append(video);
                 
-                // Remove video on modal close, to prevent ongoing audio 
-                $("#view-post").on("hidden.bs.modal", function (e) {
-                    $("#view-post #postText").find(video).remove();
-                });
-            }
+    //             // Remove video on modal close, to prevent ongoing audio 
+    //             $("#view-post").on("hidden.bs.modal", function (e) {
+    //                 $("#view-post #postText").find(video).remove();
+    //             });
+    //         }
 
-            if (data[0].image) {
-                var image = $('<div><img src="/' + data[0].image + '"></div>');
-                $("#view-post #postText").append("<br>");
-                $("#view-post #postText").append(image);
-            }
-            $("#view-post .post-icons a[data-type]")[0].dataset.type = "like";
-            $("#view-post .post-icons a[data-type]").removeData("type");
-            $("#view-post .post-icons a[data-likes]")[0].dataset.likes = data[0].like_count;
-            $("#view-post .post-icons a[data-likes]").removeData("likes");
-            $("#view-post .post-icons a[data-post-id]")[0].dataset.postId = data[0].post_id;
-            $("#view-post .post-icons a[data-post-id]").removeData("postId");
+    //         if (data[0].image) {
+    //             var image = $('<div><img src="/' + data[0].image + '"></div>');
+    //             $("#view-post #postText").append("<br>");
+    //             $("#view-post #postText").append(image);
+    //         }
+    //         $("#view-post .post-icons a[data-type]")[0].dataset.type = "like";
+    //         $("#view-post .post-icons a[data-type]").removeData("type");
+    //         $("#view-post .post-icons a[data-likes]")[0].dataset.likes = data[0].like_count;
+    //         $("#view-post .post-icons a[data-likes]").removeData("likes");
+    //         $("#view-post .post-icons a[data-post-id]")[0].dataset.postId = data[0].post_id;
+    //         $("#view-post .post-icons a[data-post-id]").removeData("postId");
             
-            $(".comment-composer .postPostComment[data-post-id]")[0].dataset.postId = data[0].post_id;
-            $(".comment-composer .postPostComment[data-post-id]").removeData("postId");
+    //         $(".comment-composer .postPostComment[data-post-id]")[0].dataset.postId = data[0].post_id;
+    //         $(".comment-composer .postPostComment[data-post-id]").removeData("postId");
             
-            // Show modal
-            $("#view-post").modal();
-        });
+    //         // Show modal
+    //         $("#view-post").modal();
+    //     });
 
-        request.fail(function() {
-            alert("You must be logged in to view a post.");
-        });
-    });
+    //     request.fail(function() {
+    //         alert("You must be logged in to view a post.");
+    //     });
+    // });
 
     $(".post-icons > a").on("click", function (e) {
         e.preventDefault();
@@ -84,6 +84,29 @@ $(function() {
 
     $(".postPostComment").on("click", function (e) {
         e.preventDefault();
+        console.log(e);
+        var commentComposer;
+        commentComposer = $(e.target).parents('.comment-composer');
+        
+        var textDiv = commentComposer.find('.comment-composer-text');
+        if (textDiv.text().length ==0) {
+            return;
+        }
+        var text = textDiv[0].innerText.trim();
+        var request = $.post(
+            "/post/" + this.dataset.postId, {
+                "action": "comment",
+                "comment": {
+                    "text": text
+                } 
+            }
+        );
+
+        request.done(function(data) {
+            window.location.reload();
+        });
+        
+        return;
         if ($(".comment-composer-text").text().length == 0) {
             return;
         }

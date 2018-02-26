@@ -54,7 +54,11 @@ class ClientController extends Controller
 
     public function product($id) {
         $service = $this->clientGateway->getService($id);
-        $posts = $this->clientGateway->getPostsPreviewByService($id);
+        //$posts = $this->clientGateway->getPostsPreviewByService($id);
+        $posts = null;
+        if (!empty(session('id'))) {
+            $posts = $this->clientGateway->getPostsAndCommentsByService($id);
+        }
         $reviews = $this->clientGateway->getReview($id);
         $avgStars = $this->clientGateway->avgStars($id);
         $service->image_url = $this->clientGateway->getImage($id);
