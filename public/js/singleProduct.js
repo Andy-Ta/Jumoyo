@@ -105,25 +105,6 @@ $(function() {
         request.done(function(data) {
             window.location.reload();
         });
-        
-        return;
-        if ($(".comment-composer-text").text().length == 0) {
-            return;
-        }
-        var text = $(".comment-composer-text")[0].innerText.trim();
-        var request = $.post(
-            "/post/" + this.dataset.postId, {
-                "action": "comment",
-                "comment": {
-                    "text": text
-                } 
-            }
-        );
-
-        request.done(function(data) {
-            $(".comment-composer-text").text("");
-            displayComments(data);
-        });
     });
 
     var start_time = start.split(" ");
@@ -416,37 +397,6 @@ function msToTime(s) {
         minutes = "00";
 
     return hours + ":" + minutes + ampm;
-}
-
-function displayComments(data) {
-    $(".comments").empty();
-    if (data.length == 0) {
-        $(".comments").append("<p>No comments</p>");
-    } else {
-        data.forEach(function(element){
-            var cmtimage = '';
-            if(element.image !== null){
-                cmtimage = "/"+element.image;
-            }else{
-                cmtimage = '/img/review-icon.png';
-            }
-            var tempDiv = $('<div class="single-comment"></div>');
-            var commenter = $('<div class="commenter"></div>');
-            var imageDiv = $('<div class="review-profile"><img src="'+ cmtimage+ '" id="cmt-img" class="img-rounded"></div>')
-            $(commenter).text(element.first_name + " " + element.last_name + " ");
-            commenter.append('<span class="comment-time">haha</span>');
-
-
-            tempDiv.append(imageDiv);
-            tempDiv.append(commenter);
-            tempDiv.append('<p></p>');
-
-            //TODO : Convert time to local time
-            $(tempDiv).find(".comment-time").text(convertTime(element.date_time));
-            $(tempDiv).find("p").text(element.text);
-            $(".comments").append(tempDiv);
-        });
-    }
 }
 
 function convertTime(time) {
