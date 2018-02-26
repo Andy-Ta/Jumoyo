@@ -117,18 +117,63 @@
         </div>
     </div>
 </div>
-@if(session()->get('id'))
+@if(!empty(session()->get('id')))
     <div class="container-fluid work-carousel">
         <div class="container">
             <div class="col-md-12">
                 <h2> Posts </h2>
+            </div>
+                @if (empty($data))
+                <p> No posts </p>
+                @else
+                <div class="postScrolling">
                 @foreach ($data as $post)
-                    <div class="widget bg-white overflow-hidden post post-preview" data-post-id="{{$post->post_id}}">
-                        <span class="widget-title">{{ $post->title }}</span>
-                        <p id="serviceName">{{ $post->name }}</p>
+                    <div class="col-md-12 widget bg-white post">
+                        <span class="widget-title" id="postTitle">{{$post->title}}</span>
+                        <p id="serviceName">{{$post->name}}</p>
+                        <p id="postText">
+                            {{$post->text}}
+                            @if(!empty($post->url))
+                            <br>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$post->url}}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                            @endif
+                            @if(!empty($post->image))
+                            <br>
+                            <img width="560" height="315" src="/{{$post->image}}">
+                            @endif
+                        </p>
+
+                        <div class="post-icons">
+                            <a href="javascript:void(0)" data-post-id="{{$post->post_id}}" data-type="like" data-likes="{{$post->like_count}}">
+                                <i class="fa {{empty($post->like_id) ? 'fa-thumbs-o-up' : 'fa-thumbs-up' }}"></i>
+                            </a>
+                        </div>
+
+                        <div class="comment-composer">
+                            <div contenteditable="true" placeholder="Write your comment here" class="comment-composer-text"></div>
+                            <div class="comment-composer-options">
+                                <button class="btn postPostComment" data-post-id="{{$post->post_id}}"> Post Comment </button>
+                            </div>
+                        </div>
+                        <div class="post-comments">
+                            @if(count($post->comments) == 0)
+                                <p>No comments</p>
+                            @else  
+                                @foreach ($post->comments as $comment)                        
+                                    <div class="single-comment">
+                                        <div class="review-profile"><img src="{{ $comment->image ? $comment->image : img/review-icon.png }}" class="img-rounded"></div>
+                                        <div class="commenter">{{ $comment->first_name . " " . $comment->last_name }}
+                                            <span class="comment-time" data-moment-format="YYYY-MM-DD H:mm" data-moment-date="{{$comment->date_time}}"></span>
+                                        </div>
+                                        <p>{{ $comment->text }}</p>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                 @endforeach
-            </div>
+                </div>
+                @endif
         </div>
     </div>
 @endif

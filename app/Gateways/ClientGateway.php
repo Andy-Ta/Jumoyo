@@ -274,6 +274,37 @@ class ClientGateway
         )[0];
     }
 
+    public function getPostsAndCommentsByService($serviceid) {
+        $userid = session()->get('id');
+        $posts = DB::select('
+        SELECT 
+            s.id AS service_id, 
+            s.name, 
+            s.category,
+            p.title, 
+            p.id AS post_id, 
+            p.text, 
+            p.url, 
+            p.image,
+            l.id AS like_id,
+            COUNT(i.id) AS like_count 
+        FROM posts p
+        LEFT JOIN likes l 
+            ON l.post_id = p.id AND l.user_id = ' . $userid . ' 
+        LEFT JOIN likes i
+            ON i.post_id = p.id 
+        INNER JOIN services s 
+            ON p.service_id = s.id
+        WHERE s.id = ' . $serviceid . '
+        GROUP BY s.id, s.name, s.category, p.title, p.id, p.text, p.url, p.image, l.id'
+        );
+        foreach($posts as &$post) {
+            $post->comments = $this->getPostComments($post->post_id);
+        }
+        error_log(print_r($posts, true));
+        return $posts;
+    }
+
     public function insertPostComment($postid, $text)
     {
         $date = date("Y-m-d H:i:s");
