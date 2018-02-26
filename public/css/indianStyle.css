@@ -1931,6 +1931,11 @@ input {
 
 /* Anas css */
 
+.navbar-nav > li .dropdown-menu > li > a {
+    font-size: 14px;
+    padding: 5px 20px !important;
+}
+
 .navbar-brand {
     padding: 0px;
     height: auto;
@@ -2000,10 +2005,6 @@ img.header-avatar.img-circle.ml10 {
     padding-right: 5px;
     padding-left: 5px;
     background: transparent;
-}
-
-.navbar-nav > li .dropdown-menu > li > a {
-    font-size: 14px;
 }
 
 .navbar-collapse {
