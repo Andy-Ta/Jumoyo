@@ -1,4 +1,5 @@
-<?php $__env->startSection('content'); ?>
+@extends('layouts.default')
+@section('content')
 <div class="container-fluid bg-no-overlay">
     <video autoplay muted loop id="myVideo">
         <source src="../video/bg.mp4" type="video/mp4">
@@ -81,15 +82,14 @@
 </div>
 
 <!-- LOGIN MODAL -->
-<?php echo $__env->make('modals.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@include('modals.login')
 
 <!-- SIGNUP MODAL -->
-<?php echo $__env->make('modals.signup', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@include('modals.signup')
 
 <!-- MESSAGE MODAL -->
+@include('modals.message')
 <?php echo $__env->make('modals.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <script src="js/home.js" type="text/javascript"></script>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@stop
