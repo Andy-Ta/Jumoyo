@@ -89,7 +89,6 @@
 
 <!-- MESSAGE MODAL -->
 @include('modals.message')
-<?php echo $__env->make('modals.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <script src="js/home.js" type="text/javascript"></script>
 @stop
