@@ -1,4 +1,4 @@
-<div class="container-fluid bg-no-overlayreview" style="margin-left: 5%; margin-right: 5%;">
+<div class="bg-no-overlayreview">
     <div class="container">
         <div class="row text-center">
             <form action="/search">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="input-group">
-                        <input type="submit" class="btn btn-default" />
+                        <input type="submit" value="Search" class="search-btn" />
                     </div>
                 </div>
                 <div class="col-md-3"></div>
@@ -31,7 +31,7 @@
         <div class="page-details">
             <i class="fa fa-home" aria-hidden="true"></i>
             <span> Jumoyo </span>/
-            <span> {{ $page }} </span>
+            <span> <?php echo e($page); ?> </span>
         </div>
     </div>
 </div>

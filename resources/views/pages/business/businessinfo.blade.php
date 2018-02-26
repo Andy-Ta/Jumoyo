@@ -1,7 +1,7 @@
 @extends('layouts.business.default')
 
 @section('content')
-    <div class = "app layout-fixed-header">
+    <div class = "layout-fixed-header">
     <form method="post" id="businessEditForm">
         <div class="container">
             <h3 class="businesscontent">Business Profile</h3>

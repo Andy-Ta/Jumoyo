@@ -6,7 +6,7 @@
         background-color: #EBEDF2;
     }
 </style>
-<div class="app layout-fixed-header" style="background-color: #EBEDF2;">
+<div class="layout-fixed-header" style="background-color: #EBEDF2;">
     <div class="main-panel">
         <div class="main-content">
             <div class="container-fluid">

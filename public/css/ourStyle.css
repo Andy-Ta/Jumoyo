@@ -39,7 +39,7 @@ select::-ms-expand {
 }
 
 label {
-    color: #08306C;
+    color: #21345c;
 }
 
 
@@ -90,7 +90,7 @@ label {
 
 .business-navbar {
     color: #555;
-    background-color: #08306C;
+    background-color: #21345c;
     text-decoration: none;
     height: 100%;
     width: 15%;
@@ -118,7 +118,7 @@ label {
 
 .btn {
     color: white;
-    background-color: #08306C;
+    background-color: #21345c;
     display: inline-block;
     border: none;
     text-decoration: none;
@@ -208,16 +208,16 @@ label {
 }
 
 .modal-body{
-    color: #08306C !important;
+    color: #21345c !important;
     background: #ECEEF2;
 }
 
 .modal-header{
-    background: #08306C;
+    background: #21345c;
 }
 
 .filebrd {
-    border: 1px solid #08306C;
+    border: 1px solid #21345c;
     background: #fff;
 }
   
@@ -373,7 +373,7 @@ a[data-likes]::after {
 
 
 .dropbtn {
-    background-color: #08306C;
+    background-color: #21345c;
     color: white;
     padding: 16px;
     font-size: 16px;
