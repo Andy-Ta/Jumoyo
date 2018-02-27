@@ -41,6 +41,44 @@
             </form>
         </div>
     </div>
+    <div class="container steps-container">
+        <div class="row">
+            <div class="row" style="padding: 30px;">
+                <div class="col-md-3 text-center">
+                    <div class="steps-home">
+                        <div class="box-content">
+                            <i class="tag-title fa fa-id-card-o"></i>
+                            <h3>Post your Services for free</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="steps-home">
+                        <div class="box-content">
+                            <i class="tag-title fa fa-rocket"></i>
+                            <h3>Get Proposals in minutes</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="steps-home">
+                        <div class="box-content">
+                            <i class="tag-title fa fa-calendar-check-o"></i>
+                            <h3>Book an appointment</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="steps-home">
+                        <div class="box-content">
+                            <i class="tag-title fa fa-dollar"></i>
+                            <h3>Get Paid for your job</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="container">
     <div class="row">

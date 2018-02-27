@@ -19,14 +19,14 @@
                                 My Business
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownBusiness">
-                                <li><a href="/business/"> Schedule <span class="badge">10</span></a> </li>
-                                <li><a href="/business/post"> Post</a> </li>
-                                <li><a href="/business/portfolio"> Portfolio</a> </li>
-                                <li><a href="/business/review_rating"> Review & Rating</a> </li>
+                                <li><a href="/business/"> Schedule <span class="badge">10</span></a></li>
+                                <li><a href="/business/post"> Post</a></li>
+                                <li><a href="/business/portfolio"> Portfolio</a></li>
+                                <li><a href="/business/review_rating"> Review & Rating</a></li>
                                 <!--<li><a href="../business/static_report"> <i class="fa fa-pie-chart" aria-hidden="true"></i> <span>Static & Report</span> </a> </li>-->
-                                <li><a href="/business/businessinfo"> Business Settings</a> </li>
+                                <li><a href="/business/businessinfo"> Business Settings</a></li>
                                 <li><a href="/business/myservices"> My Services </a></li>
-                                <li><a href="/business/contact"> Contact </a> </li>
+                                <li><a href="/business/contact"> Contact </a></li>
                                 <!--<li><a href="../business/public_profile" target="_blank"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Public Profile</span> </a> </li>-->
                             </ul>
                         </li>
@@ -54,7 +54,7 @@
                         </li>
                     @else
                         <li>
-                            <a href="#" id="loginuser" data-toggle="modal" data-target="#loginModal">Login</a>
+                            <a href="#" id="loginuser" data-toggle="modal" data-target="#loginModal">Sign In</a>
                         </li>
                     @endif
                 </ul>

@@ -142,10 +142,12 @@ body {
 }
 
 .bg-no-overlay {
+    position: relative;
     background-size: cover;
     background-color: #21345c;
     color: #fff;
     height: 100%;
+    width: 100%;
     padding-top: 50px;
 }
 
@@ -394,22 +396,6 @@ input[text] {
 .textalign {
     /*text-align: center;*/
     color: #fff;
-}
-
-h2 {
-    display: inline-block;
-    /*border-bottom: 2px solid black;*/
-    color: #21345c;
-    border-color: #2676bb;
-}
-
-h2::after {
-    background-color: #21345c;
-    content: "";
-    height: 4px;
-    left: 15px;
-    position: absolute;
-    width: 60px;
 }
 
 .btn-primary {
@@ -988,16 +974,6 @@ ul.thumbnails-carousel li {
     border: none;
 }
 
-h2::after {
-    background-color: #21345c;
-    content: "";
-    height: 4px;
-    left: 15px;
-    position: absolute;
-    width: 60px;
-    border-radius: 5px;
-}
-
 .carousel-slider {
     padding: 30px 0;
 }
@@ -1217,10 +1193,6 @@ h2::after {
 
 .filterbar {
     border-bottom: 1px solid #D1D1D1;
-}
-
-.searchpad {
-    padding-top: 50px;
 }
 
 @media (max-width: 480px) {
@@ -1931,6 +1903,55 @@ input {
 
 /* Anas css */
 
+.large-modal {
+    padding: 0 !important;
+}
+
+.large-modal .modal-content {
+    border-radius: 0;
+}
+
+.large-modal .modal-title {
+    color: #21345c;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.large-modal .modal-header,
+.large-modal .modal-body {
+    background: none;
+}
+
+.large-modal .modal-dialog {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+.large-modal .modal-body {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -320px;
+}
+
+.large-modal form#loginForm,
+.large-modal .modal-content,
+.large-modal form#signupForm {
+    height: 100%;
+    background: #f7f7f7;
+}
+
+.searchpad {
+    padding-top: 150px;
+}
+
+.searchpad h1 {
+    position: relative;
+    font-size: 48px;
+    text-shadow: 0px 0px 8px #333;
+}
+
 .navbar-nav > li .dropdown-menu > li > a {
     font-size: 14px;
     padding: 5px 20px !important;
@@ -1956,10 +1977,6 @@ span.badge {
 
 a#loginuser {
     border: 2px solid;
-}
-
-.searchpad h1 {
-    position: relative;
 }
 
 .bg-no-overlayreview {
@@ -2001,7 +2018,8 @@ img.header-avatar.img-circle.ml10 {
     padding-right: 5px;
     background: transparent;
 }
-.navbar-nav > li > a#dropdownBusiness{
+
+.navbar-nav > li > a#dropdownBusiness {
     padding-right: 5px;
     padding-left: 5px;
     background: transparent;
@@ -2024,21 +2042,37 @@ img.header-avatar.img-circle.ml10 {
     transition: background-color 0.6s ease-out;
 }
 
-.bg-no-overlay {
-    width: 100%;
-}
-
 .top-menu.scroll {
     background-color: #21345c;
     padding: 5px 10px;
 }
 
 #myVideo {
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+}
+
+.steps-container {
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+.steps-home i.tag-title {
+    font-size: 52px;
+    background: #65656587;
+    padding: 29px;
+    border-radius: 50%;
+    width: 115px;
+    height: 115px;
+    box-shadow: 0px 0px 6px 0px #333;
+}
+
+.steps-home h3 {
+    font-size: 23px;
+    text-shadow: 0px 0px 11px #333;
 }
 
 .navbar-nav > li > a {
@@ -2055,23 +2089,47 @@ img.header-avatar.img-circle.ml10 {
     color: #a4e72d;
 }
 
-.btn-signUp-modal {
-    color: #21345c;
-    border: 2px solid #21345c;
+.btn-blue, .btn-gray {
     display: inline-block;
     padding: 7px 15px;
-    border-radius: 7px;
+    border-radius: 4px;
     font-size: 16px;
     font-weight: 500;
-    -webkit-transition: all 0.8s ease-out;
-    -moz-transition: all 0.8s ease-out;
-    -o-transition: all 0.8s ease-out;
-    transition: all 0.8s ease-out;
+    background: none;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
 }
 
-.btn-signUp-modal:hover {
-    background: #08306c;
+.btn-blue {
+    color: #21345c;
+    border: 2px solid #21345c;
+}
+
+.btn-blue:hover {
+    background: #21345c;
     color: white;
+}
+
+.btn-gray {
+    color: #737373;
+    border: 2px solid #737373;
+}
+
+.btn-gray:hover {
+    border: 2px solid #333;
+    color: #333;
+}
+
+.separator {
+    margin: 40px auto;
+    width: 50%;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.full {
+    width: 100%;
 }
 
 .separation-or {
