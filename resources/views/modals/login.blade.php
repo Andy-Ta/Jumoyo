@@ -44,4 +44,4 @@
     </div>
 </div>
 
-<script src="<?php echo e(URL::asset('js/login.js')); ?>" type="text/javascript"></script>
+<script src="{{ URL::asset('js/login.js') }}" type="text/javascript"></script>

@@ -7,15 +7,15 @@ use Exception;
 
 class BusinessGateway
 {
-    public function register($name, $address, $city, $postalCode, $country, $state)
+    public function register($name, $address, $city, $postalCode, $country, $state, $phoneNumber)
     {
         return DB::table('businesses')->insert(
             array("name" => $name, "address" => $address, "city" => $city, "postal_code" => $postalCode, "country" => $country,
-                "state" => $state, "client" => session()->get('id'))
+                "state" => $state, "phone_number" => $phoneNumber ,"client" => session()->get('id'))
         );
     }
 
-    public function editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $facebook, $twitter, $instagram) {
+    public function editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $phone_number , $facebook, $twitter, $instagram) {
         return DB::table('businesses')->
             where('id', $id)->
                 update(array(
@@ -24,6 +24,7 @@ class BusinessGateway
                     "city" => $city,
                     "postal_code" => $postal_code,
                     "state" => $state,
+                    "phone_number" => $phone_number,
                     "country" => $country
                     )
                 );
@@ -295,7 +296,7 @@ class BusinessGateway
         return DB::table('contacts')->where('id', $contactID)->delete();
     }
 
-    public function addPost($title, $service, $text, $url, $image)
+    public function addPost($title, $service, $text, $url, $image, $time)
     {
         if (!empty($url)) {
             preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i',
@@ -306,7 +307,7 @@ class BusinessGateway
 
 
         return DB::table('posts')->insert(
-            array("service_id" => $service, "title" => $title, "text" => $text, "url" => $url, "image" => $image)
+            array("service_id" => $service, "title" => $title, "text" => $text, "url" => $url, "image" => $image, "date_time" => $time)
         );
     }
 
@@ -315,7 +316,8 @@ class BusinessGateway
         $businessId = DB::table('businesses')->where('client', session()->get('id'))->get()->first()->id;
 
         return DB::select('SELECT services.id AS services_id, services.name, services.category,
-                                  posts.title, posts.id AS posts_id, posts.text, posts.url, posts.image FROM posts 
+                                  posts.title, posts.id AS posts_id, posts.text, posts.url, posts.image, posts.date_time 
+                                  FROM posts 
         INNER JOIN services ON posts.service_id = services.id WHERE services.business = ' . $businessId . ';');
     }
 

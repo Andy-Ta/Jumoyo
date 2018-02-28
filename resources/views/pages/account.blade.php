@@ -261,7 +261,7 @@
                     <div class="tab-pane fade" id="reviews">
                         <div class="row">
                             <div class="col-xs-12 tab-head">
-                                <h2>Review</h2>
+                                <h2>Reviews</h2>
                             </div>
                             <div class="col-md-12">
                                 <div class="tab-content">

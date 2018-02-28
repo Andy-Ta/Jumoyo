@@ -12,7 +12,7 @@
                 <div id="displayErrors" style="text-align: center;">
                 </div>
                 <div class="col-md-6 form-group">
-                    <label>Name</label>
+                    <label>Business Name</label>
                     <input type="text" class="form-control" id="name" name="name" />
                 </div>
                 <div class="col-md-6 form-group">
@@ -284,6 +284,10 @@
                 <div class="col-md-6 form-group">
                     <label>Postal Code</label>
                     <input type="text" class="form-control" id="postal" name="postal"/>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label>Phone Number</label>
+                    <input type="text" class="form-control" id="phone_number" name="phone"/>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">

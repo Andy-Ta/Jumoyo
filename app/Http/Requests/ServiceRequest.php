@@ -27,9 +27,9 @@ class ServiceRequest extends FormRequest
     {
         return [
             'name' => 'required|regex:/^[\w ,.\'-]+$/i|max:255',
-            'category' => "required|regex:/^[\w ,.'-]+$/i|max:255",
-            'price' => 'required|regex:/^[\d\.]+$/i|max:20',
-            'priceHourly' => 'required|regex:/^[\d\.]+$/i|max:20',
+            'category' => "required|regex:/^[\w ,.'\&-]+$/i|max:255",
+            'price' => 'required_without:priceHourly|empty_with:priceHourly|nullable|regex:/^[\d\.]+$/i|max:20',
+            'priceHourly' => 'nullable|regex:/^[\d\.]+$/i|max:20',
             'desc' => ['required', 'regex:/^([\w\W]+(?:. |-| |\'))*[\w\W]*$/i', 'max:10000']
         ];
     }

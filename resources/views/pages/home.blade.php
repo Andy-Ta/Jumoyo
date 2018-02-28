@@ -1,4 +1,5 @@
 @extends('layouts.default')
+
 @section('content')
 <div class="container-fluid bg-no-overlay">
     <video autoplay muted loop id="myVideo">

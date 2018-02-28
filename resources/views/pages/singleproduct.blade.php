@@ -42,6 +42,13 @@
                             </a>
                         </div>
                     @endif
+                @else
+                    <div class="single-follow">
+                        <a onclick="followLoginAlert()" href="#" title="Please log in to follow.">
+                            <span class="glyphicon glyphicon-heart-empty"
+                                      style="font-size: 200%;"></span>
+                        </a>
+                    </div>
                 @endif
             </div>
             <div class="clearfix"></div>
@@ -93,32 +100,83 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="right-details">
-                    @if(!session()->get('id')) Please log in to book. @endif
-                    <a href="#">
-                        <button @if(!session()->get('id')) disabled @endif
-                            id="bookbtn" class="btn btn-primary bookbtn bootbutton"
-                            data="{{$service->service_id}}">Book Service
-                        </button>
-                    </a>
+                    @if(!session()->get('id'))
+                        <a href="#" title="Please log in to book.">
+                            <button onclick="bookLoginAlert()" class="btn btn-primary bookbtn bootbutton">Book Service</button>
+                        </a>
+                    @else
+                        <a href="#" title="Book the service now.">
+                            <button id="bookbtn" class="btn btn-primary bookbtn bootbutton"
+                                    data="{{$service->service_id}}">Book Service
+                            </button>
+                        </a>
+                    @endif
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
 </div>
-<div class="container-fluid work-carousel">
-    <div class="container">
-        <div class="col-md-12">
-            <h2> Posts </h2>
-            @foreach ($data as $post)
-            <div class="widget bg-white overflow-hidden post post-preview" data-post-id="{{$post->post_id}}">
-                <span class="widget-title">{{ $post->title }}</span>
-                <p id="serviceName">{{ $post->name }}</p>
+@if(!empty(session()->get('id')))
+    <div class="container-fluid work-carousel">
+        <div class="container">
+            <div class="col-md-12">
+                <h2> Posts </h2>
             </div>
-            @endforeach
+                @if (empty($data))
+                <p> No posts </p>
+                @else
+                <div class="postScrolling">
+                @foreach ($data as $post)
+                    <div class="col-md-12 widget bg-white post">
+                        <span class="widget-title" id="postTitle">{{$post->title}}</span>
+                        <p id="serviceName">{{$post->name}}</p>
+                        <p id="postText">
+                            {{$post->text}}
+                            @if(!empty($post->url))
+                            <br>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$post->url}}" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                            @endif
+                            @if(!empty($post->image))
+                            <br>
+                            <img width="560" height="315" src="/{{$post->image}}">
+                            @endif
+                        </p>
+
+                        <div class="post-icons">
+                            <a href="javascript:void(0)" data-post-id="{{$post->post_id}}" data-type="like" data-likes="{{$post->like_count}}">
+                                <i class="fa {{empty($post->like_id) ? 'fa-thumbs-o-up' : 'fa-thumbs-up' }}"></i>
+                            </a>
+                        </div>
+
+                        <div class="comment-composer">
+                            <div contenteditable="true" placeholder="Write your comment here" class="comment-composer-text"></div>
+                            <div class="comment-composer-options">
+                                <button class="btn postPostComment" data-post-id="{{$post->post_id}}"> Post Comment </button>
+                            </div>
+                        </div>
+                        <div class="post-comments">
+                            @if(count($post->comments) == 0)
+                                <p>No comments</p>
+                            @else  
+                                @foreach ($post->comments as $comment)                        
+                                    <div class="single-comment">
+                                        <div class="review-profile"><img src="{{ $comment->image ? $comment->image : img/review-icon.png }}" class="img-rounded"></div>
+                                        <div class="commenter">{{ $comment->first_name . " " . $comment->last_name }}
+                                            <span class="comment-time" data-moment-format="YYYY-MM-DD H:mm" data-moment-date="{{$comment->date_time}}"></span>
+                                        </div>
+                                        <p>{{ $comment->text }}</p>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+                @endif
         </div>
     </div>
-</div>
+@endif
 <div class="container-fluid work-carousel">
     <div class="container">
         <div class="col-xs-12">
@@ -181,7 +239,7 @@
                             @endif
                         </span>
                 <p>{{ $value->text }}</p>
-                <span>{{ $value->date_time }}</span>
+                <span class="comment-time" data-moment-format="YYYY-MM-DD H:mm" data-comment-time="{{ $value->date_time }}"></span>
                 @if(session('id') == $value->reviewer_id)
                 <span><br><a href="/delete/{{ $value->review_id }}" id="deleteReview">Delete</a></span>
                 @endif
@@ -214,9 +272,18 @@
 
 <script src="{{ URL::asset('js/singleProduct.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/review.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ URL::asset('vendor/india/scripts/moment.min.js') }}"></script>
 <script type="text/javascript">
     days = '{{ $service->days }}';
     start = '{{ $service->start_time }}';
     end = '{{ $service->end_time }}';
+
+    function followLoginAlert() {
+        alert("Please log in to follow.");
+    }
+
+    function bookLoginAlert() {
+        alert("Please log in to book the service.");
+    }
 </script>
 @stop
