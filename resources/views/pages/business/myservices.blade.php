@@ -11,7 +11,7 @@
 @extends('layouts.business.default')
 
 @section('content')
-    <div class="app layout-fixed-header">
+    <div class="layout-fixed-header">
         <div class="main-panel">
             <div class="main-content">
                 <div class="container-fluid">

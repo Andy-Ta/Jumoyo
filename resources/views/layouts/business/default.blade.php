@@ -6,9 +6,8 @@
     </head>
 
     <body>
-        @include('includes.business.navbar')
-        @include('includes.business.header')
-
+        @include('includes.navbar')
+        @include('includes.searchbar')
         @yield('content')
 
         @include('includes.business.footer')

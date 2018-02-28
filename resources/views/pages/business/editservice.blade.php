@@ -1,6 +1,6 @@
 @extends('layouts.business.default')
 @section('content')
-    <div class="app layout-fixed-header">
+    <div class="layout-fixed-header">
         <div class="container">
             <h3 class="businesscontent">Edit Your Service</h3>
         </div>
