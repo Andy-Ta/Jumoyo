@@ -40,7 +40,7 @@ class BusinessController extends Controller
     public function getBusinessInfo(){
         $business = $this->businessGateway->getBusiness();
         //dd($business[0]);
-        return view('pages.business.businessinfo', ['business' => $business, 'page' => 'BUSINESS INFO']);
+        return view('pages.business.businessinfo', ['business' => $business, 'page' => 'Business Info']);
     }
 
     public function updateBusiness(BusinessEditRequest $request) {
@@ -104,7 +104,7 @@ class BusinessController extends Controller
         $data = $this->businessGateway->getPost();
         $serviceName = $this->businessGateway->getUserService();
         //dd($data);
-        return view('pages.business.post', ['data' => $data, 'serviceName' => $serviceName, 'page' => 'POST']);
+        return view('pages.business.post', ['data' => $data, 'serviceName' => $serviceName, 'page' => 'Post']);
     }
 
     public function deletePost($id) {
@@ -131,13 +131,13 @@ class BusinessController extends Controller
     public function getMyService($id) {
         $data = $this->businessGateway->getMyService($id);
 
-        return view('pages.business.editservice', ['data' => $data,'page' => 'SERVICES']);
+        return view('pages.business.editservice', ['data' => $data,'page' => 'Services']);
     }
 
     public function getMyServices() {
         $data = $this->businessGateway->getMyServices();
 
-        return view('pages.business.myservices', ['data' => $data, 'page' => 'SERVICES']);
+        return view('pages.business.myservices', ['data' => $data, 'page' => 'Services']);
     }
 
     public function removeMyService($id) {
@@ -181,7 +181,7 @@ class BusinessController extends Controller
     public function displayContacts(){
         $contacts = $this->businessGateway->getContacts();
         //dd($contacts);
-        return view('pages.business.contact', ['contacts' => $contacts, 'page' => 'CONTACT']);
+        return view('pages.business.contact', ['contacts' => $contacts, 'page' => 'Contact']);
     }
 
     public function addContact(ContactRequest $request){
@@ -261,7 +261,7 @@ class BusinessController extends Controller
         $businessID = $this->businessGateway->getBusinessID();
         $reviews = $this->businessGateway->getAllReviews($businessID);
 
-        return view('pages.business.reviews', ['serviceName' => $serviceName, 'reviews' => $reviews, 'page' => 'REVIEWS']);
+        return view('pages.business.reviews', ['serviceName' => $serviceName, 'reviews' => $reviews, 'page' => 'Reviews']);
     }
 
     public function getReviews(Request $request)
@@ -316,7 +316,7 @@ class BusinessController extends Controller
             }
         }
 
-        return view('pages.business.portfolio', ['data' => $data, 'serviceName' => $serviceName, 'page' => 'PORTFOLIO']);
+        return view('pages.business.portfolio', ['data' => $data, 'serviceName' => $serviceName, 'page' => 'Portfolio']);
     }
 
     public function deletePortfolio(Request $request) {

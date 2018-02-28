@@ -14,10 +14,16 @@
                 <ul class="nav navbar-nav">
                     @if (session()->has('id'))
                         <li>
-                            <a class="btn dropdown-toggle" type="button" id="dropdownBusiness" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="true">
-                                My Business
-                            </a>
+                            @if(session()->has('businessid'))
+                                <a class="btn dropdown-toggle" type="button" id="dropdownBusiness" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">
+                                        My Business
+                                </a>
+                            @else
+                                <a class="btn dropdown-toggle" type="button" href="/business" aria-expanded="true">
+                                    Upgrade to Business
+                                </a>
+                            @endif
                             <ul class="dropdown-menu" aria-labelledby="dropdownBusiness">
                                 <li><a href="/business/"> Schedule <span class="badge">10</span></a></li>
                                 <li><a href="/business/post"> Post</a></li>
@@ -33,14 +39,7 @@
                         <li class="dropdown">
                             <a class="btn dropdown-toggle" type="button" id="dropdownAccount"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                @if(session('image') !== null )
-                                    <img src="{{URL::asset(session('image'))}}"
-                                         class="header-avatar img-circle ml10" alt="user" title="user"/>
-                                @else
-                                    <img src="{{URL::asset('/img/review-icon.png')}}"
-                                         class="header-avatar img-circle ml10" alt="user" title="user"/>
-                                @endif
-                                Welcome, {{ session('firstName') }}
+                                {{ session('firstName') }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownAccount">
                                 <li><a href="/account/#profile" id="welcomeuser">Account</a></li>

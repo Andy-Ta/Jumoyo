@@ -37,11 +37,11 @@ Route::get('/search', array(
 ));
 
 Route::get('/business', function () {
-    return view('pages.business.schedule', ['page' => 'SCHEDULE']);
+    return view('pages.business.schedule', ['page' => 'Schedule']);
 })->middleware('checklogged', 'checkbusiness');
 
 Route::get('/business/services', function () {
-    return view('pages.business.services', ['page' => 'SERVICES']);
+    return view('pages.business.services', ['page' => 'Services']);
 })->middleware('checklogged', 'checkbusiness');
 
 Route::get('/business/post', array(
@@ -61,7 +61,7 @@ Route::get('/business/businessinfo', array (
 ))->middleware('checklogged', 'checkbusiness');
 
 Route::get('/business/register', function () {
-    return view('pages.business.register', ['page'=>'REGISTER']);
+    return view('pages.business.register', ['page'=>'Register']);
 })->middleware('checklogged');
 
 Route::get('/business/contact', array(
