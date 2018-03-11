@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="row notescls">
-                                <p>By signin up you agree to our <a href="#">terms of service</a> and <a href="#"> privacy
+                                <p>By booking you agree to our <a href="#">terms of service</a> and <a href="#"> privacy
                                         policy</a></p>
                             </div>
                             <div class="row notescls">

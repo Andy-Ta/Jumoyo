@@ -51,6 +51,8 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
+\Stripe\Stripe::setApiKey("sk_test_I55ue96TTx0TLkUfpGoqn1Rd");
+
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );

@@ -265,8 +265,19 @@ class ClientController extends Controller
         $id = $request->input('serviceid');
         $price = $request->input('price');
         $notes = $request->input('notes');
+        $token = $request->input('stripeToken');
 
-        if($this->clientGateway->book($id, $date, $start, $end, $notes, $price)) {
+        if(is_float($price))
+            str_replace(".", "", $price);
+        else
+            $price .= "00";
+
+        $customer = \Stripe\Customer::create([
+            'source' => $token,
+            'email' => $this->clientGateway->getThisEmail(),
+        ]);
+
+        if($this->clientGateway->book($id, $date, $start, $end, $notes, $price, $customer->id)) {
             return "c chill";
         }
         else {

@@ -259,7 +259,7 @@
 @include('modals.book')
 
 <!-- BOOKDETAILS MODAL -->
-@include('modals.bookdetails')
+@include('modals.payment')
 
 <!-- BOOKCONF MODAL -->
 @include('modals.confirmdetails')

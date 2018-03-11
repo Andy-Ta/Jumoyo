@@ -56,6 +56,9 @@
                     <div class="form-group">
                         <input id="businessEditButton" type="submit" class="btn btn-block btn-md btn-primary" value="UPDATE">
                     </div>
+                    <div class="form-group">
+                        <a class="btn btn-block btn-md btn-primary" href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CS2bEBfcZagN5M8d0U6sJlGZOVhKeOyN&scope=read_write">CHANGE STRIPE</a>
+                    </div>
                 </div>
             </div>
         </div>

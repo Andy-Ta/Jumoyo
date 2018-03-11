@@ -29,12 +29,33 @@ class BusinessController extends Controller
         $postalCode = $request->input('postal');
         $country = $request->input('country');
         $state = $request->input('state');
-        $phoneNumber= $request->input('phone');
+        $phoneNumber = $request->input('phone');
+        $email = $this->businessGateway->getEmail();
 
-        if($this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber))
-            return response('Success.', 200);
-        else
-            return abort(400, "An error occurred during the registration.");
+        try {
+            $account = \Stripe\Account::create(array(
+                "type" => "standard",
+                "country" => "CA",
+                "email" => $email
+            ));
+
+            $id = $this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber, $account->id);
+
+            if($id) {
+                session(['businessid' => DB::table('businesses')->where('client', $user->id)->value('id')]);
+                return response('Success.', 200);
+            }
+            else
+                return abort(400, "An error occurred during the registration.");
+        }
+        catch(\Exception $e) {
+            $id = $this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber, null);
+            if($id) {
+                return response("STRIPE", 200);
+            }
+            else
+                return abort(400, "An error occurred during the registration.");
+        }
     }
 
     public function getBusinessInfo(){
@@ -347,12 +368,56 @@ class BusinessController extends Controller
     }
 
     public function confirmBooking($bookingid) {
-        $this->businessGateway->changeBookingConfirmation($bookingid, 1);
+        $book = $this->businessGateway->getBooking($bookingid);
+
+        $businessId = $this->businessGateway->getBusinessFromService($book->service_id);
+        $businessName = $this->businessGateway->getBusinessName($businessId);
+        $businessToken = $this->businessGateway->getToken($businessId);
+
+        $charge = \Stripe\Charge::create(array(
+            "amount" => $book->price,
+            "currency" => "cad",
+            "customer" => $book->customerId,
+            "description" => "Charge from Jumoyo Business: " . $businessName,
+            "destination" => array(
+                "amount" => intval($book->price * 0.9),
+                "account" => $businessToken,
+            )
+        ));
+
+        $this->businessGateway->changeBookingConfirmation($bookingid, 1, $charge->id);
         return response('success', 200);
     }
 
     public function deleteBooking($bookingid) {
         $this->businessGateway->deleteBooking($bookingid);
         return response('success', 200);
+    }
+
+    public function stripe(Request $request) {
+        return view('pages.business.stripe', ['code'=>$request->input('code')]);
+    }
+
+    public function updateStripe(Request $request) {
+        if(!$request->input('error')) {
+            $code = $request->input('code');
+
+            $client = new \GuzzleHttp\Client();
+
+            $r = $client->request('POST', 'https://connect.stripe.com/oauth/token', [
+                'form_params' => [
+                    'code' => $code,
+                    'client_secret' => 'sk_test_I55ue96TTx0TLkUfpGoqn1Rd',
+                    'grant_type' => 'authorization_code'
+                ]
+            ]);
+
+            $token = json_decode($r->getBody()->getContents())->stripe_user_id;
+
+            $this->businessGateway->updateStripe($token);
+            return redirect('/business');
+        }
+        else
+            return redirect('/business');
     }
 }
