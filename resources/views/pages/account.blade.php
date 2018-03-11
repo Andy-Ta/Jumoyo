@@ -156,7 +156,7 @@
                                     </div>
                                     <div class="row fontclr">
                                         <div class="col-md-12 text-right" style="float:left;">
-                                            <h4>$ {{ $booking->price }}</h4>
+                                            <h4>${{ number_format($booking->price / 100, 2, '.', '') }}</h4>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -318,7 +318,6 @@
 </div>
 
 @include("modals.editAccInfo")
-@include("modals.bookdetails")
 
 @stop
 

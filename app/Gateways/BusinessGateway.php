@@ -7,12 +7,16 @@ use Exception;
 
 class BusinessGateway
 {
-    public function register($name, $address, $city, $postalCode, $country, $state, $phoneNumber)
+    public function register($name, $address, $city, $postalCode, $country, $state, $phoneNumber, $token)
     {
-        return DB::table('businesses')->insert(
+        $val = DB::table('businesses')->insertGetId(
             array("name" => $name, "address" => $address, "city" => $city, "postal_code" => $postalCode, "country" => $country,
-                "state" => $state, "phone_number" => $phoneNumber ,"client" => session()->get('id'))
+                "state" => $state, "phone_number" => $phoneNumber , "token" => $token, "client" => session()->get('id'))
         );
+
+        session(['businessid' => DB::table('businesses')->where('client', session()->get('id'))->value('id')]);
+
+        return $val;
     }
 
     public function editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $phone_number , $facebook, $twitter, $instagram) {
@@ -251,16 +255,6 @@ class BusinessGateway
         return $businessId;
     }
 
-    public function getBusinessJson() {
-        $businessId = $this->getBusinessID();
-
-        $business = DB::select('SELECT name, email, mobile, address, city, postal_code, state, country, facebook, twitter, instagram FROM businesses WHERE id='.$businessId.';');
-
-        $businessJson = json_encode($business);
-
-        return $businessJson;
-    }
-
     public function addContact($name, $phone, $email, $address, $businessID, $image)
     {
         return DB::table('contacts')->insert(
@@ -428,15 +422,44 @@ class BusinessGateway
         return $bookings->get();
     }
 
-    public function changeBookingConfirmation($bookingid, $confirm) {
+    public function changeBookingConfirmation($bookingid, $confirm, $chargeId) {
         DB::table('bookings')
         ->where('id', $bookingid)
-        ->update(['confirmed' => $confirm]);
+        ->update(['confirmed' => $confirm, 'chargeId' => $chargeId]);
     }
 
     public function deleteBooking($bookingid) {
         DB::table('bookings')
         ->where('id', $bookingid)
         ->delete();
+    }
+
+    public function getBooking($bookingid) {
+        return DB::table('bookings')->where('id', $bookingid)->first();
+    }
+
+    public function getEmail() {
+        return DB::table('clients')->where('id', session()->get('id'))->value('email');
+    }
+
+    public function updateStripe($token) {
+        return DB::table('businesses')->
+        where('id', session()->get('businessid'))->
+        update(array(
+                "token" => $token
+            )
+        );
+    }
+
+    public function getToken($id) {
+        return DB::table('businesses')->where('id', $id)->value('token');
+    }
+
+    public function getBusinessFromService($id) {
+        return DB::table('services')->where('id', $id)->value('business');
+    }
+
+    public function getBusinessName($id) {
+        return DB::table('businesses')->where('id', $id)->value('name');
     }
 }

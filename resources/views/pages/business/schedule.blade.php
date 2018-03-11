@@ -150,9 +150,8 @@
     <script src='{{ URL::asset('vendor/india/scripts/js/bootstrap-clockpicker.js') }}'></script>
     <script type="text/javascript" src="{{ URL::asset('vendor/india/scripts/moment.min.js') }}"></script>
     <script src='{{ URL::asset('vendor/india/scripts/fullcalendar.min.js') }}'></script>
-    <script src="https://chmln.github.io/flatpickr/bower_components/flatpickr/dist/flatpickr.js"></script>
-    <script src="https://chmln.github.io/flatpickr/bower_components/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
-    <script src="https://chmln.github.io/flatpickr/bower_components/flatpickr/dist/plugins/weekSelect/weekSelect.js"></script>
-    <script src="https://chmln.github.io/flatpickr/flatpickr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.3.2/flatpickr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.3.2/plugins/confirmDate/confirmDate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.3.2/plugins/weekSelect/weekSelect.js"></script>
     <script src="{{ URL::asset('js/schedule.js') }}"></script>
 @stop

@@ -154,8 +154,9 @@ $(function() {
             $("#timeDiv").append($(template));
     }
 
-    $("form#bookForm").on("submit", function(e){
+    $("form#bookForm").on("submit", function(e) {
         e.preventDefault();
+
         var formData = new FormData(this);
 
         $.ajax
@@ -167,11 +168,12 @@ $(function() {
             contentType: false,
             cache: false,
             success: function (response) {
-                alert("Your booking was successful.");
+                alert("Your booking was successful. Please check your account for the businesses' confirmation.");
                 location.reload();
             },
             error: function (response) {
                 alert("There was an error while trying to book.");
+                location.reload();
             }
         });
     });
@@ -283,7 +285,8 @@ $(function() {
                     total = serviceInfo.price;
                 $("#confirm-price").text(total + "$");
                 $("#price").val(total);
-                $("#confirmdetail").modal();
+                stripe();
+                $("#paymentModal").modal();
             }
         }
         else {
@@ -403,4 +406,69 @@ function convertTime(time) {
     time = time.replace(/-/g, "/");
     var d = new Date(time + " UTC");
     return d.toLocaleString('en-CA');
+}
+
+function stripe() {
+    // Create a Stripe client.
+    var stripe = Stripe('pk_test_xKeJrJPKWHoVOzMlxFky7IRc');
+
+    // Create an instance of Elements.
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+        base: {
+            color: '#32325d',
+            lineHeight: '18px',
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#aab7c4'
+            }
+        },
+        invalid: {
+            color: '#fa755a',
+            iconColor: '#fa755a'
+        }
+    };
+
+    // Create an instance of the card Element.
+    var card = elements.create('card', {style: style});
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    // Handle real-time validation errors from the card Element.
+    card.addEventListener('change', function(event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+
+
+    $("form#payment-form").on("submit", function(e){
+        e.preventDefault();
+
+        stripe.createToken(card).then(function(result) {
+            if (result.error) {
+                // Inform the user if there was an error.
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
+            } else {
+                // Insert the token ID into the form so it gets submitted to the server
+                var hiddenInput = document.createElement('input');
+                hiddenInput.setAttribute('type', 'hidden');
+                hiddenInput.setAttribute('name', 'stripeToken');
+                hiddenInput.setAttribute('value', result.token.id);
+                $("#bookForm").append(hiddenInput);
+
+                $("#confirmdetail").modal();
+            }
+        });
+    });
 }

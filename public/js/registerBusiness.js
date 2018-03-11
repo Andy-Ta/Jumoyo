@@ -9,8 +9,11 @@ $(function() {
 
         var request = $.post('/business/register', $('#businessRegisterForm').serialize());
 
-        request.done(function() {
-            window.location = "/business/services";
+        request.done(function(jqXHR) {
+            if(jqXHR !== "STRIPE")
+                window.location = "/business/services";
+            else
+                window.location = "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CS2bEBfcZagN5M8d0U6sJlGZOVhKeOyN&scope=read_write";
         });
 
         request.fail(function(jqXHR) {

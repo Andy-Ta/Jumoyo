@@ -170,10 +170,10 @@ class ClientGateway
 
     }
 
-    public function book($id, $date, $start, $end, $notes, $price)
+    public function book($id, $date, $start, $end, $notes, $price, $custId)
     {
         return DB::table('bookings')->insert(
-            array("service_id" => $id, "user_id" => session()->get('id'), "date" => $date, "start" => $start, "end" => $end, "notes" => $notes, "price" => $price, "confirmed" => 0)
+            array("service_id" => $id, "user_id" => session()->get('id'), "date" => $date, "start" => $start, "end" => $end, "notes" => $notes, "price" => $price, "confirmed" => 0, "chargeId" => -1, "customerId" => $custId)
         );
     }
 
@@ -416,5 +416,9 @@ class ClientGateway
         }
 
         return $bookings;
+    }
+
+    public function getThisEmail() {
+        return DB::table('clients')->where('id', session()->get('id'))->value('email');
     }
 }

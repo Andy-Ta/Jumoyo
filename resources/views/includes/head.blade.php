@@ -32,3 +32,4 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.1.4/flatpickr.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>

@@ -99,7 +99,7 @@ Route::get('/post/{postid}', 'ClientController@getPostContent');
 Route::post('/business/review_rating', 'BusinessController@getReviews');
 
 /* Actions logic */
-Route::patch('/business/booking/{bookingid}', 'BusinessController@confirmBooking')->middleware('checklogged', 'checkbusiness');
+Route::patch('/business/booking/{bookingid}', 'BusinessController@confirmBooking');
 
 Route::delete('/business/booking/{bookingid}', 'BusinessController@deleteBooking')->middleware('checklogged', 'checkbusiness');
 
@@ -150,6 +150,8 @@ Route::post('/book', 'ClientController@book');
 Route::post('/review', 'ClientController@review');
 
 Route::post('/{id}', 'ClientController@review');
+
+Route::get('/business/stripe', 'BusinessController@updateStripe');
 
 //Service related
 

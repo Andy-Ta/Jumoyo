@@ -289,6 +289,10 @@
                     <label>Phone Number</label>
                     <input type="text" class="form-control" id="phone_number" name="phone"/>
                 </div>
+                <div class="form-group col-md-12 text-center">
+                    <span>IMPORTANT! An e-mail will be sent to your user account's e-mail address for creating a Stripe account.</span><br />
+                    <span>If you do not have a valid stripe account you will not be able to have any bookings.</span>
+                </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <input id="businessRegisterButton" type="submit" class="btn btn-block btn-md btn-primary" value="CONTNUE">
