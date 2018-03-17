@@ -20,7 +20,7 @@
         <div class="col-md-12 panelpad">
             <div class="tabbable">
                 <ul class="nav nav-pills nav-stacked col-md-3">
-                    <li class="active"><a href="#profile" data-toggle="tab">Account</a></li>
+                    <li class="active"><a href="#account" data-toggle="tab">Account</a></li>
                     <li><a href="#bookings" data-toggle="tab">Bookings</a></li>
                     <li><a href="#favorites" data-toggle="tab">Favorites</a></li>
                     <li><a href="#reviews" data-toggle="tab">Reviews</a></li>
@@ -64,10 +64,6 @@
                                                value="{{ session('phone') }}">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <a class="btn btn-primary" type="submit" id="editAccInfoBtn"
-                                           name="editAccInfoBtn">Save Changes</a>
-                                    </div>
-                                    <div class="form-group col-md-6">
                                         <a class="btn btn-warning" data-toggle="modal"
                                            data-target="#changePswModal" id="changePsw" name="changePsw">Change
                                             Password</a>
@@ -78,26 +74,20 @@
                                 <div class="form-group">
                                     <label>Image</label>
                                 </div>
-                                <div>
+                                <div title="Click to modify">
                                     @if(session()->get('image') !== null)
-                                        <img class="imgbooking" src="{{URL::asset(session('image'))}}">
+                                        <a href="#" data-toggle="modal" data-target="#changeAccImgModal" id="changeAccImage" name="changeAccImage">
+                                            <img class="imgbooking" src="{{URL::asset(session('image'))}}" alt="Account Img">
+                                        </a>
                                     @else
-                                        <img class="imgbooking"
-                                             src="{{URL::asset('/img/review-icon.png')}}">
+                                        <a href="#" data-toggle="modal" data-target="#changeAccImgModal" id="changeAccImage" name="changeAccImage">
+                                           <img class="imgbooking" src="{{URL::asset('/img/review-icon.png')}}" alt="Account Img">
+                                        </a>
                                 @endif
                                 <!-- <img class="imgbooking" src="images/pexels-photo.jpg"/> -->
-                                </div>
-                                <div class="row formpdg">
-                                    <div class="col-md-6" style="float:left;">
-                                        <a class="btn btn-primary" data-toggle="modal"
-                                           data-target="#changeAccImgModal" id="changeAccImage"
-                                           name="changeAccImage">CHANGE</a>
-                                    </div>
-                                    <div class="col-md-6" style="float:right;">
-                                        <a class="btn btn-danger" data-toggle="modal"
-                                           data-target="#deleteAccImgModal" id="removeAccImage"
-                                           name="removeAccImage">DELETE</a>
-                                    </div>
+                                </div><br>
+                                <div>
+                                    <a class="btn btn-primary" type="submit" id="editAccInfoBtn" name="editAccInfoBtn">Save Changes</a>
                                 </div>
                             </div>
                         </div>
