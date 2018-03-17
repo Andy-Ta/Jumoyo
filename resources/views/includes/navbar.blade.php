@@ -42,9 +42,8 @@
                                 {{ session('firstName') }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownAccount">
-                                <li><a href="/account/#profile" id="welcomeuser">Account</a></li>
-                                <li><a href="/account/#bookings" id="welcomeuser">Bookings <span class="badge">5</span></a>
-                                </li>
+                                <li><a href="/account/#account" id="welcomeuser">Account</a></li>
+                                <li><a href="/account/#bookings" id="welcomeuser">Bookings</a></li>
                                 <li><a href="/account/#favorites" id="welcomeuser">Favorites</a></li>
                                 <li><a href="/account/#reviews" id="welcomeuser">Reviews</a></li>
                                 <li role="separator" class="divider"></li>
