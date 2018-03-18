@@ -11,4 +11,6 @@ ALTER TABLE `businesses` ADD  IF NOT EXISTS `token` VARCHAR(255) NOT NULL;
 
 ALTER TABLE `services` CHANGE `price_hourly` `price_hourly` FLOAT NOT NULL DEFAULT '0', CHANGE `price` `price` FLOAT NOT NULL DEFAULT '0';
 
-ALTER TABLE `bookings` ADD `customerId` VARCHAR(255) NOT NULL AFTER `chargeId`;
+ALTER TABLE `bookings` ADD IF NOT EXISTS `chargeId` VARCHAR(255) NOT NULL;
+
+ALTER TABLE `bookings` ADD IF NOT EXISTS `customerId` VARCHAR(255) NOT NULL AFTER `chargeId`;
