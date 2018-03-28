@@ -301,7 +301,6 @@ class ClientGateway
         foreach($posts as &$post) {
             $post->comments = $this->getPostComments($post->post_id);
         }
-        error_log(print_r($posts, true));
         return $posts;
     }
 

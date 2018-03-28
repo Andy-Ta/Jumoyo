@@ -84,7 +84,6 @@ $(function() {
 
     $(".postPostComment").on("click", function (e) {
         e.preventDefault();
-        console.log(e);
         var commentComposer;
         commentComposer = $(e.target).parents('.comment-composer');
         
@@ -223,6 +222,10 @@ $(function() {
             }
         });
         $('#pickup').modal();
+    });
+
+    $("#cbBtn").click(function(){
+        $('#contactBusiness').modal();
     });
 
     $("#reviewBtn").click(function(){

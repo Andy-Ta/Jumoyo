@@ -149,7 +149,10 @@ Route::post('/book', 'ClientController@book');
 
 Route::post('/review', 'ClientController@review');
 
-Route::post('/{id}', 'ClientController@review');
+// Messaging
+Route::post('/email', 'ClientController@emailBusiness')->middleware('checklogged');
+
+//Route::post('/{id}', 'ClientController@review');
 
 Route::get('/business/stripe', 'BusinessController@updateStripe');
 

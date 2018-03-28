@@ -321,6 +321,39 @@ a[data-likes]::after {
     border-radius: 6px 6px 0 0;
 }
 
+.email-composer {
+    display : flex;
+    margin: 1em 0em;
+    flex-direction: column;
+}
+
+.email-composer-text {
+    border: none;
+    text-align: left;
+    flex-grow: 1;
+    padding: 0.75em;
+    background-color: white;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 6px;
+    cursor: text;
+    white-space: pre-wrap;
+    min-height: 5em;
+}
+
+.email-composer-text:not(:empty), .email-composer-text:focus {
+    min-height: 15em;
+}
+
+.email-composer-text:focus {
+    outline: none;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #777;
+    border-radius: 6px 6px;
+}
+
 [contenteditable=true]:empty:before {
     content: attr(placeholder);
     opacity: 0.5;
