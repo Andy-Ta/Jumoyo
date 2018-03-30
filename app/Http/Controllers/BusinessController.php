@@ -60,8 +60,13 @@ class BusinessController extends Controller
 
     public function getBusinessInfo(){
         $business = $this->businessGateway->getBusiness();
-        //dd($business[0]);
-        return view('pages.business.businessinfo', ['business' => $business, 'page' => 'Business Info']);
+
+        $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $client_id = "ca_CS2bEBfcZagN5M8d0U6sJlGZOVhKeOyN";
+        if(strpos($url, "jumoyo"))
+            $client_id = "ca_CS2bCsCEMTBwE1fweqUKf8gEvlgEZ1jL";
+
+        return view('pages.business.businessinfo', ['business' => $business, 'page' => 'Business Info', 'client_id' => $client_id]);
     }
 
     public function updateBusiness(BusinessEditRequest $request) {
@@ -404,10 +409,15 @@ class BusinessController extends Controller
 
             $client = new \GuzzleHttp\Client();
 
+            $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $token = "sk_test_I55ue96TTx0TLkUfpGoqn1Rd";
+            if(strpos($url, "jumoyo"))
+                $token = "sk_live_jMKYsDTZMrVujYrKN98tbbUw";
+
             $r = $client->request('POST', 'https://connect.stripe.com/oauth/token', [
                 'form_params' => [
                     'code' => $code,
-                    'client_secret' => 'sk_test_I55ue96TTx0TLkUfpGoqn1Rd',
+                    'client_secret' => $token,
                     'grant_type' => 'authorization_code'
                 ]
             ]);
