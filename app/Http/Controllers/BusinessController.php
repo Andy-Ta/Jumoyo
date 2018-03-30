@@ -34,12 +34,12 @@ class BusinessController extends Controller
         $email = $this->businessGateway->getEmail();
 
         try {
+            dd("gietmamaw");
             $account = \Stripe\Account::create(array(
                 "type" => "standard",
                 "country" => "CA",
                 "email" => $email
             ));
-            dd($account);
             $id = $this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber, $account->id);
 
             if($id) {
@@ -50,6 +50,7 @@ class BusinessController extends Controller
                 return abort(400, "An error occurred during the registration.");
         }
         catch(\Exception $e) {
+            dd($e);
             $id = $this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber, null);
             if($id) {
                 return response("STRIPE", 200);
