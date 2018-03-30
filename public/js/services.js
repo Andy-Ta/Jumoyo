@@ -75,12 +75,12 @@ function display(data) {
             var price = value.price;
             var priceHourly = value.price_hourly;
 
-            if(price !== 0 || price !== null)
+            if(price !== 0 && price !== null)
                 price = ' | ' + price + '$';
             else
                 price = '';
 
-            if(priceHourly !== 0 || priceHourly !== null)
+            if(priceHourly !== 0 && priceHourly !== null)
                 priceHourly = ' | ' + priceHourly + '$/hour';
             else
                 priceHourly = '';
