@@ -34,7 +34,6 @@ class BusinessController extends Controller
         $email = $this->businessGateway->getEmail();
 
         try {
-            dd("gietmamaw");
             $account = \Stripe\Account::create(array(
                 "type" => "standard",
                 "country" => "CA",
