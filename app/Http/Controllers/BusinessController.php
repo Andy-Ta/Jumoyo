@@ -13,6 +13,7 @@ use App\Http\Requests\EditPostRequest;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\BusinessEditRequest;
 use DateTime;
+use DB;
 
 class BusinessController extends Controller
 {
@@ -42,7 +43,7 @@ class BusinessController extends Controller
             $id = $this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber, $account->id);
 
             if($id) {
-                session(['businessid' => DB::table('businesses')->where('client', $user->id)->value('id')]);
+                session(['businessid' => DB::table('businesses')->where('client', session('id'))->value('id')]);
                 return response('Success.', 200);
             }
             else
