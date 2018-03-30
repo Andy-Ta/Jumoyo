@@ -410,7 +410,10 @@ function convertTime(time) {
 
 function stripe() {
     // Create a Stripe client.
-    var stripe = Stripe('pk_test_xKeJrJPKWHoVOzMlxFky7IRc');
+    var theToken = "pk_test_xKeJrJPKWHoVOzMlxFky7IRc";
+    if(window.location.href.indexOf("jumoyo") > -1)
+        theToken = "pk_live_WM9upxHDEHGyO48FsA00gZ9L";
+    var stripe = Stripe(theToken);
 
     // Create an instance of Elements.
     var elements = stripe.elements();

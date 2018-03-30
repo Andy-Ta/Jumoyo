@@ -51,7 +51,12 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-\Stripe\Stripe::setApiKey("sk_test_I55ue96TTx0TLkUfpGoqn1Rd");
+$url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$token = "sk_test_I55ue96TTx0TLkUfpGoqn1Rd";
+if(strpos($url, "jumoyo"))
+    $token = "sk_live_jMKYsDTZMrVujYrKN98tbbUw";
+
+\Stripe\Stripe::setApiKey($token);
 
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
