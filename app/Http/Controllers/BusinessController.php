@@ -39,7 +39,7 @@ class BusinessController extends Controller
                 "country" => "CA",
                 "email" => $email
             ));
-
+            dd($account);
             $id = $this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber, $account->id);
 
             if($id) {
