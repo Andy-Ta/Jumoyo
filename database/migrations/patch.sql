@@ -14,3 +14,5 @@ ALTER TABLE `services` CHANGE `price_hourly` `price_hourly` FLOAT NOT NULL DEFAU
 ALTER TABLE `bookings` ADD IF NOT EXISTS `chargeId` VARCHAR(255) NOT NULL;
 
 ALTER TABLE `bookings` ADD IF NOT EXISTS `customerId` VARCHAR(255) NOT NULL AFTER `chargeId`;
+
+ALTER TABLE `businesses` CHANGE `token` `token` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;

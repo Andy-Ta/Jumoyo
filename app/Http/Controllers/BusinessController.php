@@ -49,7 +49,6 @@ class BusinessController extends Controller
                 return abort(400, "An error occurred during the registration.");
         }
         catch(\Exception $e) {
-            dd($e);
             $id = $this->businessGateway->register($name, $address, $city, $postalCode, $country, $state, $phoneNumber, null);
             if($id) {
                 return response("STRIPE", 200);
