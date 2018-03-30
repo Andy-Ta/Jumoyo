@@ -15,9 +15,9 @@
                                 <div class="col-md-12 form-group">
                                     <label>Service Category</label>
                                     <select name="category" class="form-group" style="width: 100%;" title="Service Category">
-                                        <option value="Finance & Legal Services">Finance & Legal Services</option>
+                                        <option value="Finance and Legal Services">Finance and Legal Services</option>
                                         <option value="Beauty">Beauty</option>
-                                        <option value="Medical & Science">Medical & Science</option>
+                                        <option value="Medical and Science">Medical and Science</option>
                                         <option value="Security">Security</option>
                                         <option value="Technologies">Technologies</option>
                                         <option value="Events">Events</option>
