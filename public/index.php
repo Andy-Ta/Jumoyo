@@ -56,6 +56,8 @@ $token = "sk_test_I55ue96TTx0TLkUfpGoqn1Rd";
 if(strpos($url, "jumoyo"))
     $token = "sk_live_jMKYsDTZMrVujYrKN98tbbUw";
 
+dd($token);
+
 \Stripe\Stripe::setApiKey($token);
 
 $response = $kernel->handle(
