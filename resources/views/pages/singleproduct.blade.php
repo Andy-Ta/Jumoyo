@@ -2,6 +2,7 @@
 
 @section('content')
 @include('includes.searchbar')
+
 <div class="container-fluid single-product-details">
     <div class="container">
         <div class="col-md-8 col-xs-12">
@@ -111,6 +112,17 @@
                             </button>
                         </a>
                     @endif
+                    @if(!session()->get('id'))
+                        <a href="#" title="Please log in to contact business.">
+                            <button onclick="bookLoginAlert()" class="btn btn-primary bookbtn bootbutton">Contact Business</button>
+                        </a>
+                    @else
+                        <a href="#" title="Contact the business.">
+                            <button id="cbBtn" class="btn btn-primary bookbtn bootbutton"
+                                    data="{{$service->service_id}}">Contact Business
+                            </button>
+                        </a>
+                    @endif
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -148,7 +160,6 @@
                                 <i class="fa {{empty($post->like_id) ? 'fa-thumbs-o-up' : 'fa-thumbs-up' }}"></i>
                             </a>
                         </div>
-
                         <div class="comment-composer">
                             <div contenteditable="true" placeholder="Write your comment here" class="comment-composer-text"></div>
                             <div class="comment-composer-options">
@@ -269,6 +280,9 @@
 
 <!-- POST MODAL -->
 @include('modals.viewpost')
+
+<!-- CONTACT MODAL -->
+@include('modals.contactBusiness')
 
 <script src="{{ URL::asset('js/singleProduct.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/review.js') }}" type="text/javascript"></script>

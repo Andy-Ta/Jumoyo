@@ -11,6 +11,8 @@ use App\Http\Requests\ClientRequest;
 use App\Http\Requests\ReviewRequest;
 use Illuminate\Http\Request;
 use DB;
+use App\Mail\ContactBusiness;
+use Illuminate\Support\Facades\Mail;
 
 class ClientController extends Controller
 {
@@ -322,4 +324,29 @@ class ClientController extends Controller
             return abort(400, "An error occurred while unfavoriting service.");
         }
     }
+
+    public function emailBusiness(Request $r) {
+        $validatedData = $r->validate([
+            'service' => 'required|integer',
+            'message' => 'required|String',
+        ]);
+        $s = $this->clientGateway->getService(1);
+        $u = [
+            "name" => session()->get('firstName') . " " . session()->get('lastName'),
+            "email" => session()->get('email')
+        ];
+
+        try {
+            $mail = new ContactBusiness($validatedData['message'], $u, $s);
+            $mail
+                ->replyTo(session()->get('email'), session()->get('firstName'). ' ' . session()->get('lastName'))
+                ->subject('A user sent you a message.');
+            Mail::to($s->email, $s->business_name)->send($mail);
+        } catch (\Exception $e) {
+            return abort("Error");
+        }
+        
+        return response("OK", 200);
+    }
+
 }
