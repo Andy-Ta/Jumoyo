@@ -8,3 +8,4 @@
 <link href='{{ URL::asset('vendor/india/styles/css/bootstrap-multiselect.css') }}' rel='stylesheet' />
 <link href='{{ URL::asset('vendor/india/scripts/fullcalendar.min.css') }}' rel='stylesheet' />
 <link href='{{ URL::asset('vendor/india/scripts/fullcalendar.print.min.css') }}' rel='stylesheet' media='print' />
+<link href="{{ URL::asset('vendor/findoctor_v.1.5/css/admin.css') }}" rel="stylesheet">

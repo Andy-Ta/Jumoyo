@@ -5,7 +5,7 @@
         @include('includes.head')
     </head>
 
-    <body>
+    <body class="fixed-nav sticky-footer" id="page-top">
         @include('includes.navbar')
         @include('includes.searchbar')
         @yield('content')

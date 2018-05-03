@@ -1,3 +1,4 @@
+<script src="{{ URL::asset('vendor/findoctor_v.1.5/js/admin.js') }}"></script>
 <footer>
     <div class="content-footer footer" >
         <div class="container-fluid copyright">
