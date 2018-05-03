@@ -1,24 +1,29 @@
-<script src="{{ URL::asset('vendor/findoctor_v.1.5/js/admin.js') }}"></script>
-<footer>
-    <div class="content-footer footer" >
-        <div class="container-fluid copyright">
-            <div class="footer-left col-sm-6 col-xs-12">
-                <i class="fa fa-copyright" aria-hidden="true"></i>
-                Jumoyo, Inc.
-            </div>
-            <div class="footer-right col-sm-6 col-xs-12">
-                <!--
-                <div style="margin: 0 auto;text-align: center;">
-                    <ul>
-                        <li><a href="javascript:void(0)">  Site Map </a></li>
-                        <li><a href="javascript:void(0)"> Terms </a></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
-                    </ul>
-                </div>
-                -->
-            </div>
+<footer class="sticky-footer">
+    <div class="container">
+        <div class="text-center">
+            <small>Copyright © Jumoyo 2018</small>
         </div>
     </div>
 </footer>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+</a>
+<!-- Logout Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>

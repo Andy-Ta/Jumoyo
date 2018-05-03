@@ -1,6 +1,10 @@
-<title>Jumoyo</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Jumoyo.com">
+<meta name="author" content="Aghiles">
+<title>Jumoyo</title>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!-- Favicon -->
@@ -21,15 +25,22 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="{{ URL::asset('css/indianStyle.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/ourStyle.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/services.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.1.4/flatpickr.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.1.4/themes/material_blue.css">
 <link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('vendor/pickadate/themes/default.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('vendor/pickadate/themes/default.date.css') }}">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.1.4/flatpickr.min.js"></script>
+<!-- BASE CSS -->
+<link href="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/css/style.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/css/menu.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/css/vendors.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/css/icon_fonts/css/all_icons_min.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('css/indianStyle.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('css/ourStyle.css') }}" rel="stylesheet">
+
+<!-- YOUR CUSTOM CSS -->
+<link href="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/css/custom.css') }}" rel="stylesheet">
+
+<!-- COMMON SCRIPTS -->
+<script src="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/js/common_scripts.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/js/functions.js') }}"></script>
 <script src="https://js.stripe.com/v3/"></script>

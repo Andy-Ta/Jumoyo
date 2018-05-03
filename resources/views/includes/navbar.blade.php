@@ -1,76 +1,56 @@
-<div class="top-menu">
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img class="imgresponsive logo"
-                                                      src="{{URL::asset('img/Logo/Logo_Blanc_Jumoyo.png')}}"/></a>
+<div class="layer"></div>
+<!-- Mobile menu overlay mask -->
+
+<div id="preloader">
+    <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<header class="header_sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div id="logo_home">
+                    <h1><a href="/" title="Jumoyo">
+                            <img src="{{ URL::asset('img/Logo/Logo_Bleu_Jumoyo.png') }}" width="163px" height="36px" />
+                        </a></h1>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    @if (session()->has('id'))
-                        <li>
-                            @if(session()->has('businessid'))
-                                <a class="btn dropdown-toggle" type="button" id="dropdownBusiness" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="true">
-                                        My Business
-                                </a>
-                            @else
-                                <a class="btn dropdown-toggle" type="button" href="/business" aria-expanded="true">
-                                    Upgrade to Business
-                                </a>
-                            @endif
-                            <ul class="dropdown-menu" aria-labelledby="dropdownBusiness">
-                                <li><a href="/business/"> Schedule <span class="badge">10</span></a></li>
-                                <li><a href="/business/post"> Post</a></li>
-                                <li><a href="/business/portfolio"> Portfolio</a></li>
-                                <li><a href="/business/review_rating"> Review & Rating</a></li>
-                                <!--<li><a href="../business/static_report"> <i class="fa fa-pie-chart" aria-hidden="true"></i> <span>Static & Report</span> </a> </li>-->
-                                <li><a href="/business/businessinfo"> Business Settings</a></li>
-                                <li><a href="/business/myservices"> My Services </a></li>
-                                <li><a href="/business/contact"> Contact </a></li>
-                                <!--<li><a href="../business/public_profile" target="_blank"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Public Profile</span> </a> </li>-->
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="btn dropdown-toggle" type="button" id="dropdownAccount"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                {{ session('firstName') }}
+            <nav class="col-lg-9 col-6">
+                <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
+                <div class="main-menu">
+                    <ul>
+                        @if (session()->has('id'))
+                        <li class="submenu">
+                            <a href="/business" class="show-submenu">
+                                @if(session()->has('businessid'))
+                                    My Business
+                                @else
+                                    Register to Business
+                                @endif
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownAccount">
-                                <li><a href="/account/#account" id="welcomeuser">Account</a></li>
-                                <li><a href="/account/#bookings" id="welcomeuser">Bookings</a></li>
-                                <li><a href="/account/#favorites" id="welcomeuser">Favorites</a></li>
-                                <li><a href="/account/#reviews" id="welcomeuser">Reviews</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a class="" href="/logout">Logout</a></li>
+                        </li>
+                        <li class="submenu">
+                            <a href="/account" class="show-submenu">{{ session('firstName') }}<i class="icon-down-open-mini"></i></a>
+                            <ul>
+                                <li><a href="/account#account">Account</a></li>
+                                <li><a href="/account#bookings">Bookings</a></li>
+                                <li><a href="/account#favorites">Favorites</a></li>
+                                <li><a href="/account#reviews">Reviews</a></li>
+                                <li><a href="/logout">Logout</a></li>
                             </ul>
                         </li>
-                    @else
-                        <li>
+                        @else
+                        <li class="submenu">
                             <a href="#" id="loginuser" data-toggle="modal" data-target="#loginModal">Sign In</a>
                         </li>
-                    @endif
-                </ul>
-            </div>
+                        @endif
+                    </ul>
+                </div>
+                <!-- /main-menu -->
+            </nav>
         </div>
-    </nav>
-</div>
-<script>
-    window.onscroll = function (ev) {
-        var B = document.body; //IE 'quirks'
-        var D = document.documentElement; //IE with doctype
-        D = (D.clientHeight) ? D : B;
-
-        if (D.scrollTop != 0) {
-            $('.top-menu').addClass('scroll');
-        }
-        else {
-            $('.top-menu').removeClass('scroll');
-        }
-    };
-</script>
+    </div>
+    <!-- /container -->
+</header>
+<!-- /header -->

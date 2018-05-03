@@ -170,7 +170,6 @@ html * {
 body {
   background: #fff;
   font-size: 14px;
-  font-size: 0.875rem;
   line-height: 1.4;
   font-family: "Poppins", Helvetica, sans-serif;
   color: #555555;
@@ -614,8 +613,8 @@ ul#top_access li#user figure img {
 #logo_home h1 a {
   width: 163px;
   height: 36px;
-  display: block;
-  background: url(../img/logo.png) no-repeat 0 0;
+  display: initial;
+  background: url(../../../../img/Logo/Logo_Blanc_Jumoyo.png) no-repeat 0 0;
   background-size: 163px 36px;
   text-indent: -9999px;
 }
