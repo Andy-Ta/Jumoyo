@@ -42,7 +42,7 @@
                         </li>
                         @else
                         <li class="submenu">
-                            <a href="#" id="loginuser" data-toggle="modal" data-target="#loginModal">Sign In</a>
+                            <a href="#" data-toggle="modal" data-target="#loginModal">Sign In</a>
                         </li>
                         @endif
                     </ul>

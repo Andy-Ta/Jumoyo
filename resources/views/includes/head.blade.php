@@ -41,6 +41,5 @@
 <link href="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/css/custom.css') }}" rel="stylesheet">
 
 <!-- COMMON SCRIPTS -->
-<script src="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/js/common_scripts.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/findoctor_v.1.5/html_menu_1/js/functions.js') }}"></script>
 <script src="https://js.stripe.com/v3/"></script>
