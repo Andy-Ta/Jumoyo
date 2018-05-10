@@ -1,6 +1,3 @@
-<div class="layer"></div>
-<!-- Mobile menu overlay mask -->
-
 <div id="preloader">
     <div data-loader="circle-side"></div>
 </div>
@@ -17,12 +14,11 @@
                 </div>
             </div>
             <nav class="col-lg-9 col-6">
-                <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
                 <div class="main-menu">
                     <ul>
                         @if (session()->has('id'))
-                        <li class="submenu">
-                            <a href="/business" class="show-submenu">
+                        <li>
+                            <a href="/business" class="">
                                 @if(session()->has('businessid'))
                                     My Business
                                 @else
@@ -30,8 +26,8 @@
                                 @endif
                             </a>
                         </li>
-                        <li class="submenu">
-                            <a href="/account" class="show-submenu">{{ session('firstName') }}<i class="icon-down-open-mini"></i></a>
+                        <li>
+                            <a href="/account" class="">{{ session('firstName') }}<i class="icon-down-open-mini"></i></a>
                             <ul>
                                 <li><a href="/account#account">Account</a></li>
                                 <li><a href="/account#bookings">Bookings</a></li>
@@ -41,7 +37,7 @@
                             </ul>
                         </li>
                         @else
-                        <li class="submenu">
+                        <li>
                             <a href="#" data-toggle="modal" data-target="#loginModal">Sign In</a>
                         </li>
                         @endif
