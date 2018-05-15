@@ -11,8 +11,8 @@ $(function() {
 
         request.done(function(response) {
             $("#messageDiv").text(response);
-            $("#signupModal").modal('hide');
             $("#message").modal();
+
         });
 
         request.fail(function(jqXHR) {

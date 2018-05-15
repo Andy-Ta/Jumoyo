@@ -55,6 +55,10 @@ label {
     margin-right: 40px;
 }
 
+.showErr {
+    padding-left: 0;
+}
+
 .formIssue {
     color: red;
     text-align: center;

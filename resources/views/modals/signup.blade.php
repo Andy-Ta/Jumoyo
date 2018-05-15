@@ -1,3 +1,5 @@
+
+<!--
 <div class="modal large-modal fade" id="signupModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -57,3 +59,4 @@
 </div>
 
 <script src="{{ URL::asset('js/register.js') }}" type="text/javascript"></script>
+!-->
