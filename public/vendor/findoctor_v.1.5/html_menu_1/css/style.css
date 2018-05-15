@@ -600,8 +600,6 @@ ul#top_access li#user figure img {
 
 @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   #logo_home h1 a {
-    background-image: url(../img/logo_2x.png);
-    background-size: 163px 36px;
   }
 }
 /* Footer */
