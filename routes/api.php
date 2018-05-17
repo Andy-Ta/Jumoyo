@@ -18,3 +18,8 @@ Route::post('register', 'ClientController@register');
 Route::get('/business/bookings', 'BusinessController@getBookings');
 
 Route::get('/portfolio', 'ClientController@getPortfolio');
+
+/* MOBILE */
+Route::post('/login', 'MobileController@login');
+
+Route::post('/mobileregister', 'MobileController@register');

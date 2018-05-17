@@ -20,3 +20,7 @@ ALTER TABLE `businesses` CHANGE `token` `token` VARCHAR(255) CHARACTER SET utf8 
 ALTER TABLE `services` CHANGE `price` `price` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
 
 ALTER TABLE `services` CHANGE `price_hourly` `price_hourly` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+
+ALTER TABLE `clients` ADD IF NOT EXISTS `mobile_token` VARCHAR(255) NULL;
+
+ALTER TABLE `clients` CHANGE `image` `image` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'img/review-icon.png';
