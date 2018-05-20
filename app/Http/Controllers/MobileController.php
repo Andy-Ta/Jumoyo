@@ -87,4 +87,167 @@ class MobileController extends Controller
         }
         return $token;
     }
+
+    public function getBookings(Request $request){
+        $clientsId = $request->input('id');
+        $json = new stdClass();
+        $json->data = $this->clientGateway->getBooking($clientsId);
+
+        if(!empty($json->data)){
+            return response()->json($json);
+        } else {
+            return response()->json([
+                'error' => 'Booking not found.'
+            ], 404);
+        }
+    }
+
+    public function getFavorites(Request $request){
+        $clientsId = $request->input('id');
+        $json = new stdClass();
+        $json->data = $this->clientGateway->getFavorites($clientsId);
+
+        if(!empty($json->data)){
+            return response()->json($json);
+        } else {
+            return response()->json([
+                'error' => 'Favorites list not found.'
+            ], 404);
+        }
+    }
+
+    public function getClientInfo(Request $request){
+        $clientsId = $request->input('id');
+        $json = new stdClass();
+        $json->data = $this->clientGateway->getClientInfo($clientsId);
+
+        if(!empty($json->data)){
+            return response()->json($json);
+        } else {
+            return response()->json([
+                'error' => 'Client not found.'
+            ], 404);
+        }
+    }
+
+    public function updateClientInfo(Request $request){
+        $validator = Validator::make($request->all(), [
+            'firstName' => 'required|regex:/^[a-z ,.\'-]+$/i|max:255',
+            'lastName' => 'required|regex:/^[a-z ,.\'-]+$/i|max:255',
+            'mobile' => 'required|phone:CA,US',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->messages(), 400);
+        }
+
+        $clientsId = $request->input('id');
+        $firstName = $request->input('firstName');
+        $lastName = $request->input('lastName');
+        $mobile = $request->input('mobile');
+
+        if($this->clientGateway->updateClientInfo($clientsId, $firstName, $lastName, $mobile)){
+            return response()->json([
+                'success' => 'Info updated.'
+            ], 200);
+        }else{
+            return response()->json([
+                'error' => 'Something went wrong while updating info.'
+            ], 500);
+        }
+    }
+
+    public function updatePassword(Request $request){
+        $validator = Validator::make($request->all(), [
+            'oldPassword' => 'required|min:7|max:30',
+            'password' => 'required|confirmed|min:7|max:30',
+            'password_confirmation' => 'required|same:password',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->messages(), 400);
+        }
+
+        $clientsId = $request->input('id');
+        $oldPassword = $request->input('oldPassword');
+        $pass = $request->input('password');
+
+        $userPsw = $this->clientGateway->getPsw($clientsId);
+        if(!empty($userPsw) && Hash::check($oldPassword, $userPsw)) {
+            $password = $this->hash($pass);
+
+            if($this->clientGateway->updatePsw($clientsId, $password)) {
+                return response()->json([
+                    'success' => 'Password updated.'
+                ], 200);
+            }
+            else {
+                return response()->json([
+                    'error' => 'Something went wrong while updating password.'
+                ], 500);
+            }
+        }else{
+            return response()->json([
+                'error' => 'Your old password was wrong.'
+            ], 400);
+        }
+    }
+
+    public function changeImage(Request $request){
+        $validator = Validator::make($request->all(), [
+            'image' => 'required|image|max:51200',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->messages(), 400);
+        }
+
+        $image = $request->hasFile('image');
+        $clientsId = $request->input('id');
+
+        if($image){
+            $imageTemp = $request->file('image');
+            $imgName = time() . '.' . $imageTemp->getClientOriginalExtension();
+            $destinationPath = public_path('img/client/' . $clientsId . '/');
+            $filePath = 'img/client/' . $clientsId . '/';
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 755, true);
+                $imageTemp->move($destinationPath, $destinationPath . $imgName);
+                $url = $filePath . $imgName;
+            } else {
+                $imageTemp->move($destinationPath, $destinationPath . $imgName);
+                $url = $filePath . $imgName;
+            }
+            $image = $url;
+        } else{
+            return response()->json([
+                'error' => 'No image was selected.'
+            ], 400);
+        }
+
+        if($this->clientGateway->updateImage($clientsId, $image)){
+            return response()->json([
+                'success' => 'Image updated.'
+            ], 200);
+        } else{
+            return response()->json([
+                'error' => 'Something went wrong while updating image.'
+            ], 500);
+        }
+    }
+
+    public function deleteImage(Request $request){
+        $clientsId = $request->input('id');
+
+        if($this->clientGateway->deleteImage($clientsId)){
+            return response()->json([
+                'success' => 'Image deleted.'
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => 'Something went wrong while deleting image.'
+            ], 500);
+        }
+    }
+
 }

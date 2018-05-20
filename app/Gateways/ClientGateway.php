@@ -126,6 +126,11 @@ class ClientGateway
             ->first();
     }
 
+    public function getClientInfo($id)
+    {
+        return DB::table('clients')->where('id', $id)->get(['id', 'first_name', 'last_name', 'email', 'mobile', 'image']);
+    }
+
     public function updateClientInfo($id, $first_name, $last_name, $mobile)
     {
         return DB::table('clients')->where('id', $id)->update(
