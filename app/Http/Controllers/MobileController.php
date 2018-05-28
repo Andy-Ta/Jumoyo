@@ -88,8 +88,15 @@ class MobileController extends Controller
         return $token;
     }
 
+    private function getIDFromToken($mobileToken) {
+        return DB::table('clients')
+            ->where('mobile_token', $mobileToken)
+            ->first()->id;
+    }
+
     public function getBookings(Request $request){
         $clientsId = $request->input('id');
+        $clientsId = $this->getIDFromToken($clientsId);
         $json = new stdClass();
         $json->data = $this->clientGateway->getBooking($clientsId);
 
@@ -97,13 +104,14 @@ class MobileController extends Controller
             return response()->json($json);
         } else {
             return response()->json([
-                'error' => 'Booking not found.'
+                'error' => 'Bookings list is empty.'
             ], 404);
         }
     }
 
     public function getFavorites(Request $request){
         $clientsId = $request->input('id');
+        $clientsId = $this->getIDFromToken($clientsId);
         $json = new stdClass();
         $json->data = $this->clientGateway->getFavorites($clientsId);
 
@@ -111,13 +119,14 @@ class MobileController extends Controller
             return response()->json($json);
         } else {
             return response()->json([
-                'error' => 'Favorites list not found.'
+                'error' => 'Favorites list is empty.'
             ], 404);
         }
     }
 
     public function getClientInfo(Request $request){
         $clientsId = $request->input('id');
+        $clientsId = $this->getIDFromToken($clientsId);
         $json = new stdClass();
         $json->data = $this->clientGateway->getClientInfo($clientsId);
 
@@ -142,24 +151,27 @@ class MobileController extends Controller
         }
 
         $clientsId = $request->input('id');
+        $clientsId = $this->getIDFromToken($clientsId);
         $firstName = $request->input('firstName');
         $lastName = $request->input('lastName');
         $mobile = $request->input('mobile');
 
-        if($this->clientGateway->updateClientInfo($clientsId, $firstName, $lastName, $mobile)){
+        $this->clientGateway->updateClientInfo($clientsId, $firstName, $lastName, $mobile);
+
+        //if($this->clientGateway->updateClientInfo($clientsId, $firstName, $lastName, $mobile)){
             return response()->json([
                 'success' => 'Info updated.'
             ], 200);
-        }else{
-            return response()->json([
-                'error' => 'Something went wrong while updating info.'
-            ], 500);
-        }
+        //}else{
+        //    return response()->json([
+        //        'error' => 'Something went wrong while updating info.'
+        //    ], 500);
+        //}
     }
 
     public function updatePassword(Request $request){
         $validator = Validator::make($request->all(), [
-            'oldPassword' => 'required|min:7|max:30',
+            //'oldPassword' => 'required|min:7|max:30',
             'password' => 'required|confirmed|min:7|max:30',
             'password_confirmation' => 'required|same:password',
         ]);
@@ -169,11 +181,12 @@ class MobileController extends Controller
         }
 
         $clientsId = $request->input('id');
+        $clientsId = $this->getIDFromToken($clientsId);
         $oldPassword = $request->input('oldPassword');
         $pass = $request->input('password');
 
         $userPsw = $this->clientGateway->getPsw($clientsId);
-        if(!empty($userPsw) && Hash::check($oldPassword, $userPsw)) {
+        //if(!empty($userPsw) && Hash::check($oldPassword, $userPsw)) {
             $password = $this->hash($pass);
 
             if($this->clientGateway->updatePsw($clientsId, $password)) {
@@ -186,11 +199,11 @@ class MobileController extends Controller
                     'error' => 'Something went wrong while updating password.'
                 ], 500);
             }
-        }else{
-            return response()->json([
-                'error' => 'Your old password was wrong.'
-            ], 400);
-        }
+        //}else{
+        //    return response()->json([
+        //        'error' => 'Your old password was wrong.'
+        //   ], 400);
+        //}
     }
 
     public function changeImage(Request $request){
@@ -204,6 +217,7 @@ class MobileController extends Controller
 
         $image = $request->hasFile('image');
         $clientsId = $request->input('id');
+        $clientsId = $this->getIDFromToken($clientsId);
 
         if($image){
             $imageTemp = $request->file('image');
@@ -238,6 +252,7 @@ class MobileController extends Controller
 
     public function deleteImage(Request $request){
         $clientsId = $request->input('id');
+        $clientsId = $this->getIDFromToken($clientsId);
 
         if($this->clientGateway->deleteImage($clientsId)){
             return response()->json([

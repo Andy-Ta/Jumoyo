@@ -24,7 +24,7 @@ Route::post('/login', 'MobileController@login');
 
 Route::post('/mobileregister', 'MobileController@register');
 
-Route::prefix('mobile')->group(function(){
+Route::prefix('mobile')->group(function() {
 
     Route::post('/getbookings', 'MobileController@getBookings');
 
