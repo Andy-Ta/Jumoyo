@@ -88,6 +88,31 @@ class MobileController extends Controller
         return $token;
     }
 
+    public function getServices(Request $request) {
+        $name = $request->input('name');
+        $json = new stdClass();
+        $json->data = $this->clientGateway->getMobileService($name);
+
+        return response()->json($json);
+    }
+
+    public function getServicesCategory(Request $request) {
+        $name = $request->input('category');
+        $json = new stdClass();
+        $json->data = $this->clientGateway->getMobileServiceCategory($name);
+
+        return response()->json($json);
+    }
+
+
+    public function getProduct(Request $request) {
+        $name = $request->input('id');
+        $json = new stdClass();
+        $json->data = $this->clientGateway->getService($name);
+
+        return response()->json($json);
+    }
+
     private function getIDFromToken($mobileToken) {
         return DB::table('clients')
             ->where('mobile_token', $mobileToken)

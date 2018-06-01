@@ -51,6 +51,86 @@ class ClientGateway
         return $services;
     }
 
+    public function getMobileServiceCategory($category) {
+        $services = DB::select('SELECT services.id AS service_id, businesses.name AS business_name,
+        businesses.address, businesses.city, businesses.postal_code, businesses.country, businesses.state, 
+        services.name AS services_name, services.category, services.price_hourly, services.price, services.description, 
+        business_hours.days, business_hours.start_times AS start_time, business_hours.end_times AS end_time,
+        clients.mobile, clients.email FROM businesses 
+        INNER JOIN services ON businesses.id = services.business 
+        INNER JOIN business_hours ON services.business_hours = business_hours.id
+        INNER JOIN clients ON clients.id = businesses.client;');
+
+        for ($i = 0; $i < count($services); $i++) {
+            if (!preg_match('/.*' . $category . '.*/i', $services[$i]->category)) {
+                array_splice($services, $i, 1);
+                $i = $i - 1;
+            }
+        }
+
+
+        for($i = 0; $i < count($services); $i++) {
+            if(!($i >= count($services)))
+                $img = DB::table('images')->where('portfolio', $services[$i]->service_id)->get();
+            $services[$i]->stars = $this->avgStars($services[$i]->service_id);
+            $services[$i]->reviews = count($this->getReview($services[$i]->service_id));
+            $theImg = null;
+
+            foreach($img as $imgName) {
+                if($imgName->name) {
+                    $theImg = $imgName->name;
+                    break;
+                }
+            }
+            if($imgName)
+                $services[$i]->image_url = $theImg;
+        }
+
+        return $services;
+    }
+
+    public function getMobileService($name) {
+        $services = DB::select('SELECT services.id AS service_id, businesses.name AS business_name,
+        businesses.address, businesses.city, businesses.postal_code, businesses.country, businesses.state, 
+        services.name AS services_name, services.category, services.price_hourly, services.price, services.description, 
+        business_hours.days, business_hours.start_times AS start_time, business_hours.end_times AS end_time,
+        clients.mobile, clients.email FROM businesses 
+        INNER JOIN services ON businesses.id = services.business 
+        INNER JOIN business_hours ON services.business_hours = business_hours.id
+        INNER JOIN clients ON clients.id = businesses.client;');
+
+        for ($i = 0; $i < count($services); $i++) {
+            if (!preg_match('/.*' . $name . '.*/i', $services[$i]->services_name)) {
+                array_splice($services, $i, 1);
+                $i = $i - 1;
+            }
+        }
+
+
+        for($i = 0; $i < count($services); $i++) {
+            if(!($i >= count($services)))
+                $img = DB::table('images')->where('portfolio', $services[$i]->service_id)->get();
+            $services[$i]->stars = $this->avgStars($services[$i]->service_id);
+            $services[$i]->reviews = count($this->getReview($services[$i]->service_id));
+            $theImg = null;
+
+            foreach($img as $imgName) {
+                if($imgName->name) {
+                    $theImg = $imgName->name;
+                    break;
+                }
+            }
+            if($imgName)
+                $services[$i]->image_url = $theImg;
+        }
+
+        return $services;
+    }
+
+    public function getMobileServiceImage($id) {
+
+    }
+
     public function register($firstName, $lastName, $email, $password, $mobile)
     {
         if ($mobile[0] != 1) {

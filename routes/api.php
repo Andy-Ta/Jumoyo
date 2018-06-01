@@ -39,4 +39,10 @@ Route::prefix('mobile')->group(function() {
     Route::post('/updateclientimage', 'MobileController@changeImage');
 
     Route::post('/deleteclientimage', 'MobileController@deleteImage');
+    
+    Route::post('/getsearches', 'MobileController@getServices');
+
+    Route::post('/getsearchescategory', 'MobileController@getServicesCategory');
+
+    Route::post('/getproduct', 'MobileController@getProduct');
 });
