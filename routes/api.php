@@ -18,3 +18,31 @@ Route::post('register', 'ClientController@register');
 Route::get('/business/bookings', 'BusinessController@getBookings');
 
 Route::get('/portfolio', 'ClientController@getPortfolio');
+
+/* MOBILE */
+Route::post('/login', 'MobileController@login');
+
+Route::post('/mobileregister', 'MobileController@register');
+
+Route::prefix('mobile')->group(function() {
+
+    Route::post('/getbookings', 'MobileController@getBookings');
+
+    Route::post('/getfavorites', 'MobileController@getFavorites');
+
+    Route::post('/getclientinfo', 'MobileController@getClientInfo');
+
+    Route::post('/updateclientinfo', 'MobileController@updateClientInfo');
+
+    Route::post('/updateclientpsw', 'MobileController@updatePassword');
+
+    Route::post('/updateclientimage', 'MobileController@changeImage');
+
+    Route::post('/deleteclientimage', 'MobileController@deleteImage');
+    
+    Route::post('/getsearches', 'MobileController@getServices');
+
+    Route::post('/getsearchescategory', 'MobileController@getServicesCategory');
+
+    Route::post('/getproduct', 'MobileController@getProduct');
+});
