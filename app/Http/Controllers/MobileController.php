@@ -128,9 +128,8 @@ class MobileController extends Controller
         if(!empty($json->data)){
             return response()->json($json);
         } else {
-            return response()->json([
-                'error' => 'Bookings list is empty.'
-            ], 404);
+            $json->error = "You have no bookings.";
+            return $json;
         }
     }
 
@@ -143,9 +142,8 @@ class MobileController extends Controller
         if(!empty($json->data)){
             return response()->json($json);
         } else {
-            return response()->json([
-                'error' => 'Favorites list is empty.'
-            ], 404);
+            $json->error = "You have no favorites.";
+            return $json;
         }
     }
 
@@ -158,9 +156,8 @@ class MobileController extends Controller
         if(!empty($json->data)){
             return response()->json($json);
         } else {
-            return response()->json([
-                'error' => 'Client not found.'
-            ], 404);
+            $json->error = "No client found.";
+            return $json;
         }
     }
 
