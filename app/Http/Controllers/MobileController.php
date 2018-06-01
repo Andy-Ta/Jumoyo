@@ -129,7 +129,7 @@ class MobileController extends Controller
             return response()->json($json);
         } else {
             $json->error = "You have no bookings.";
-            return $json;
+            return response()->json($json);
         }
     }
 
@@ -143,7 +143,7 @@ class MobileController extends Controller
             return response()->json($json);
         } else {
             $json->error = "You have no favorites.";
-            return $json;
+            return response()->json($json);
         }
     }
 
@@ -157,7 +157,7 @@ class MobileController extends Controller
             return response()->json($json);
         } else {
             $json->error = "No client found.";
-            return $json;
+            return response()->json($json);
         }
     }
 
