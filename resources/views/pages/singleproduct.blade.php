@@ -226,10 +226,10 @@
                             <!-- /row -->
 
                             @if(session()->get('id'))
-                                <a href="#" id="reviewBtn" title="Please leave a review."
+                                <a id="reviewBtn" title="Please leave a review."
                                    data-serviceId="{{ $service->service_id }}" class="btn_1 full-width">Add Review</a>
                             @else
-                                <a href="#" title="Please log in to add a review." onclick="bookLoginAlert()"
+                                <a title="Please log in to add a review." onclick="bookLoginAlert()"
                                    class="btn_1 full-width">Add review</a>
                             @endif
 
@@ -288,11 +288,11 @@
                             <h3>Book The Service</h3>
                         </div>
                         @if(!session()->get('id'))
-                            <a href="#" title="Please log in to book." onclick="bookLoginAlert()"
+                            <a title="Please log in to book." onclick="bookLoginAlert()"
                                class="btn_1 full-width">Book
                                 Now</a>
                         @else
-                            <a href="#" title="Book the service now." id="bookbtn" class="btn_1 full-width"
+                            <a title="Book the service now." id="bookbtn" class="btn_1 full-width"
                                data="{{$service->service_id}}">Book Now</a>
                         @endif
                     </form>
