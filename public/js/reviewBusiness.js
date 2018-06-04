@@ -46,4 +46,27 @@ $(function() {
             }
         });
     });
+
+    $("*[data-moment-format]").each(function (id, item) {
+        var d;
+        if ($(item).is('[data-comment-time]')) {
+            d = $(item).attr('data-comment-time');
+        }
+        momentdate = moment.utc(d);
+        momentdate.local();
+        $(item).text(momentdate.format($(item).attr('data-moment-format')));
+    });
+
+    $(".selectbox").change(function() {
+        if (this.selectedIndex!==0) {
+            $(".service").hide();
+
+            var imageId = $(this).find(":selected").data("id");
+            console.log(imageId);
+            $(".service[data-id="+imageId+"]").show();
+        }
+        else {
+            $(".service").show();
+        }
+    });
 });

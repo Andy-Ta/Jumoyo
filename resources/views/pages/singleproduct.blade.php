@@ -48,7 +48,7 @@
                                             @endif
                                         @endif
                                         <span>({{ count($reviews) }})</span>
-                                </span>
+                                    </span>
                                     <ul class="contacts">
                                         <li>
                                             <h6>Address</h6>

@@ -1092,3 +1092,13 @@ select.form-control:not([size]):not([multiple]) {
 .sbOptions .sbSub {
   padding-left: 17px;
 }
+
+/*-------- Extra --------*/
+
+.fa-star-half {
+  color:#EEC106;
+}
+
+.fa-star {
+  color: #EEC106;
+}

@@ -47,7 +47,7 @@
                                     <input class="btn_1" id="registerButton" type="submit" value="Sign up"/>
                                 </div>
                             </div>
-                            <p class="text-center"><small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
+                            <p class="text-center"><small></small></p>
                         </form>
                     </div>
                 </div>
