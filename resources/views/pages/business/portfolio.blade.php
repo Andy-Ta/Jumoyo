@@ -5,13 +5,14 @@
         <div class="container-fluid">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="/">Dashboard</a>
+                    <a href="/business/">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">Portfolio</li>
             </ol>
-            <div class="col-md-12" style="text-align: center;">
+            <div class="text-center">
                 <button type="button" class="btn_1 medium" data-toggle="modal" data-target="#myModal">Add</button>
             </div>
+            <br>
             <div class="box_general">
                 <div class="header_box">
                     <h2>Portfolio List</h2>

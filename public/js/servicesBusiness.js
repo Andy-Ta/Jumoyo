@@ -19,14 +19,14 @@ $(function() {
                 var err = data.errors;
 
                 $.each(err, function (key, value) {
-                    var errMsg = '<div class=\"col-md-12 showErr\" style="text-align: center;">' + value + '</div>';
+                    var errMsg = '<div class=\"col-md-12 text-danger\" style="text-align: center;">' + value + '</div>';
 
                     $("#displayErrors").append(errMsg);
                     $("#" + key).toggleClass('formError', true);
                 });
             }
             else {
-                var errMsg = '<div class=\"col-md-12 showErr\" style="text-align: center;">' + data.message + '</div>';
+                var errMsg = '<div class=\"col-md-12 text-danger\" style="text-align: center;">' + data.message + '</div>';
                 $("#displayErrors").append(errMsg);
             }
         });
@@ -85,18 +85,25 @@ $(function() {
 });
 
 function displayTime(times) {
-
-    $('.businessweek').text(times[0].day.charAt(0).toUpperCase() + times[0].day.slice(1));
-    $('.businessweekleft').text(msToTime(times[0].startTime) + ' - ' + msToTime(times[0].endTime));
-
-    var div = $('.businessc').parent();
-    for(var i = 1; i < times.length; i++) {
-        div.append('<div class="col-md-12 businessc">' +
+    $('#businesshourslist').empty();
+    var div = $('#businesshourslist');
+    if (times.length == 0) {
+        div.append('<div class="row">' +
             '           <div class="col-md-6 text-left businessweek">' +
-                            times[i].day.charAt(0).toUpperCase() + times[i].day.slice(1) +
+                            '<p>None</p>' +
             '           </div>' +
             '           <div class="col-md-6 text-right businessweekleft">' +
-                            msToTime(times[i].startTime) + ' - ' + msToTime(times[i].endTime) +
+                            'Please add your business hours.' +
+            '           </div>' +
+            '       </div>')
+    }
+    for(var i = 0; i < times.length; i++) {
+        div.append('<div class="row">' +
+            '           <div class="col-md-6 text-left businessweek">' +
+                            '<p>' + times[i].day.charAt(0).toUpperCase() + times[i].day.slice(1) + '</p>' +
+            '           </div>' +
+            '           <div class="col-md-6 text-right businessweekleft">' +
+                            '<p>' + msToTime(times[i].startTime) + ' - ' + msToTime(times[i].endTime) + '</p>' +
             '           </div>' +
             '       </div>')
     }
