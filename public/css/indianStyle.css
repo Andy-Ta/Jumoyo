@@ -1216,11 +1216,6 @@ ul.thumbnails-carousel li {
     font-family: 'open sans';
     overflow-x: hidden; }*/
 
-img {
-    height: 100%;
-    width: 100%;
-}
-
 .preview {
     display: -webkit-box;
     display: -webkit-flex;
