@@ -12,7 +12,7 @@
             </ol>
             <div class="box_general">
                 <div class="header_box">
-                    <h2 class="d-inline-block">Reviews List</h2>
+                    <h2 class="d-inline-block"><i class="fa fa-star"></i>Reviews List</h2>
                     <div class="filter">
                         <select name="orderby" class="selectbox">
                             <option>Filter by...</option>

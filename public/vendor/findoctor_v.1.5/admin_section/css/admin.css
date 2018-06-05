@@ -699,6 +699,12 @@ select.form-control:not([size]):not([multiple]) {
 .header_box {
   padding-bottom: 10px;
 }
+
+.header_box i {
+  margin-right: 10px;
+  color: #ddd;
+}
+
 .header_box.version_2 {
   border-bottom: 1px solid #ededed;
   margin: 0 -30px;

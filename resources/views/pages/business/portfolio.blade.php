@@ -15,7 +15,7 @@
             <br>
             <div class="box_general">
                 <div class="header_box">
-                    <h2>Portfolio List</h2>
+                    <h2><i class="fa fa-file-photo-o"></i>Portfolio List</h2>
                 </div>
                 @if(count($data) == 0)
                     <div style="text-align: center;">You do not have any pictures yet.</div>

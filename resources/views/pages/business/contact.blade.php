@@ -27,7 +27,7 @@
             <br>
             <div class="box_general">
                 <div class="header_box">
-                    <h2>Contacts</h2>
+                    <h2><i class="fa fa-users"></i>Contacts</h2>
                 </div>
                 <div class="list_general">
                     @if(!empty($contacts))
