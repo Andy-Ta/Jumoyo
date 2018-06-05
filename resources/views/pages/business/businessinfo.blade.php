@@ -69,10 +69,10 @@
                 <!-- /row-->
             </div>
             <!-- /box_general-->
-            <p><input id="businessEditButton" type="submit" class="btn_1 medium" value="UPDATE">
-                <a class="btn_1 medium"
-                   href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ $client_id }}&scope=read_write">CHANGE
-                    STRIPE</a></p>
+            <input id="businessEditButton" type="submit" class="btn_1 medium" value="UPDATE">
+            <a class="btn_1 medium"
+               href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ $client_id }}&scope=read_write">CHANGE
+                STRIPE</a></p>
         </div>
         <!-- /.container-fluid-->
     </div>

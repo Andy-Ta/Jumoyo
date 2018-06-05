@@ -1108,3 +1108,7 @@ select.form-control:not([size]):not([multiple]) {
 .fa-star {
   color: #EEC106;
 }
+
+.modal-title {
+  position: fixed;
+}

@@ -1,7 +1,7 @@
 <div class="modal fade" id="pickup" role="dialog">
     <div class="modal-dialog book-model">
         <div class="modal-content">
-            <div class="modal-header" style="background: #08306C;">
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Pick a Date & Time</h4>
             </div>
