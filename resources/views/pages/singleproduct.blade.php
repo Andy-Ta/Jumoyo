@@ -48,6 +48,19 @@
                                             @endif
                                         @endif
                                         <span>({{ count($reviews) }})</span>
+                                        @if(session()->get('id'))
+                                            @if(\App\Gateways\ClientGateway::isFav($service->service_id))
+                                                <a href="/service/favorite/{{$service->service_id}}">
+                                                    <span class="glyphicon glyphicon-heart-empty"
+                                                        style="font-size: 150%"></span>
+                                                </a>
+                                            @else
+                                                <a href="/service/unfavorite/{{$service->service_id}}">
+                                                    <span class="glyphicon glyphicon-heart"
+                                                        style="color: red; font-size: 150%"></span>
+                                                </a>
+                                            @endif
+                                        @endif
                                     </span>
                                     <ul class="contacts">
                                         <li>
