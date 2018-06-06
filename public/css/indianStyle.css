@@ -1967,7 +1967,8 @@ a#loginuser {
 
 .bg-no-overlayreview {
     background-size: cover;
-    background-image: url("../img/main-bg.jpg");
+    /*background-image: url("../img/main-bg.jpg");*/
+    background-color: #373869;
     color: #fff;
     padding-top: 80px;
     padding-bottom: 0px;
