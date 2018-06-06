@@ -34,6 +34,7 @@ $(function() {
     });
 
     $("#businessEditButton").click(function (e) {
+        console.log("quelque chose");
         e.preventDefault();
         $(".showErr").hide();
 

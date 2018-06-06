@@ -28,7 +28,7 @@ $(function() {
         var formData = new FormData(this);
 
         $.ajax({
-            url: '/{id}',
+            url: '/review',
             type: 'POST',
             data: formData,
             success: function () {

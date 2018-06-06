@@ -30,8 +30,8 @@
                             <textarea name="editText" id="editText" class="form-control"></textarea>
                         </div>
                         <div class="modal-footer">
-                            <button id="editPost" type="submit" class="btn">DONE</button>
-                            <button type="button" class="btn modelfooter" data-dismiss="modal">CANCEL</button>
+                            <button id="editPost" type="submit" class="btn btn-primary modelfooter">DONE</button>
+                            <button type="button" class="btn btn-warning modelfooter" data-dismiss="modal">CANCEL</button>
                         </div>
                     </div>
                 </div>

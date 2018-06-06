@@ -1602,7 +1602,6 @@ video {
 }
 
 iframe {
-  height: 100%;
   width: 100%;
 }
 
@@ -2065,7 +2064,6 @@ a.wish_bt:hover:after {
 }
 
 .rating i {
-  color: #ddd;
   font-size: 13px;
   font-size: 0.8125rem;
 }

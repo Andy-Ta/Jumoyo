@@ -699,6 +699,12 @@ select.form-control:not([size]):not([multiple]) {
 .header_box {
   padding-bottom: 10px;
 }
+
+.header_box i {
+  margin-right: 10px;
+  color: #ddd;
+}
+
 .header_box.version_2 {
   border-bottom: 1px solid #ededed;
   margin: 0 -30px;
@@ -1091,4 +1097,18 @@ select.form-control:not([size]):not([multiple]) {
 
 .sbOptions .sbSub {
   padding-left: 17px;
+}
+
+/*-------- Extra --------*/
+
+.fa-star-half {
+  color:#EEC106;
+}
+
+.fa-star {
+  color: #EEC106;
+}
+
+.modal-title {
+  position: fixed;
 }
