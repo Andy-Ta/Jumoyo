@@ -84,10 +84,8 @@ class BusinessController extends Controller
         $twitter = $request->input('twitter');
         $instagram = $request->input('instagram');
 
-        if($this->businessGateway->editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $phone_number, $facebook, $twitter, $instagram))
-            return response('Success.', 200);
-        else
-            return abort(400, "An error occurred during the update.");
+        $this->businessGateway->editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $phone_number, $facebook, $twitter, $instagram);
+        return response('Success.', 200);
     }
 
     public function post(PostRequest $request) {
