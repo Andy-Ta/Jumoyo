@@ -27,7 +27,7 @@
                                       data-post-time="{{ $value->date_time }}"></span>
                                 <br>
                                 @if(session()->get('image') !== null)
-                                    <figure><img src="{{ URL::asset($value->image_url) }}" alt=""></figure>
+                                    <figure><img src="{{ URL::asset($value->image) }}" alt=""></figure>
                                 @else
                                     <figure><img src="{{URL::asset('/img/review-icon.png')}}" alt=""></figure>
                                 @endif
