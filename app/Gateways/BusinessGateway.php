@@ -20,6 +20,17 @@ class BusinessGateway
     }
 
     public function editBusiness($id, $name, $email, $mobile, $address, $city, $postal_code, $state, $country, $phone_number , $facebook, $twitter, $instagram) {
+        dd(array(
+            "id"=> $id,
+            "name" => $name,
+            "address" => $address,
+            "city" => $city,
+            "postal_code" => $postal_code,
+            "state" => $state,
+            "phone_number" => $phone_number,
+            "country" => $country
+        ));
+
         return DB::table('businesses')->
             where('id', $id)->
                 update(array(
