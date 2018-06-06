@@ -69,7 +69,7 @@ class BusinessController extends Controller
         return view('pages.business.businessinfo', ['business' => $business, 'page' => 'Business Info', 'client_id' => $client_id]);
     }
 
-    public function updateBusiness(Request $request) {
+    public function updateBusiness(BusinessEditRequest $request) {
         $id = $this->businessGateway->getBusinessID();
         $name = $request->input('name');
         $email = $request->input('email');
