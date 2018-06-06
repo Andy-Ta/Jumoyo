@@ -11,62 +11,66 @@
                 <li class="breadcrumb-item active">Business Settings</li>
             </ol>
             <div class="box_general padding_bottom">
-                <div class="header_box version_2">
-                    <h2><i class="fa fa-gears"></i>Profile</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Business Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{$business->name}}">
+                <form id="businessEditForm">
+                    <div class="header_box version_2">
+                        <h2><i class="fa fa-gears"></i>Profile</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Business Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       value="{{$business->name}}">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- /row-->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" class="form-control" id="address" name="address"
-                                   value="{{$business->address}}">
+                    <!-- /row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control" id="address" name="address"
+                                       value="{{$business->address}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control" id="city" name="city"
+                                       value="{{$business->city}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input type="text" class="form-control" id="postal_code" name="postal_code"
+                                       value="{{$business->postal_code}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>State</label>
+                                <input type="text" class="form-control" id="state" name="state"
+                                       value="{{$business->state}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <input type="text" class="form-control" id="country" name="country"
+                                       value="{{$business->country}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                       value="{{$business->phone_number}}">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>City</label>
-                            <input type="text" class="form-control" id="city" name="city" value="{{$business->city}}">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Postal Code</label>
-                            <input type="text" class="form-control" id="postal_code" name="postal_code"
-                                   value="{{$business->postal_code}}">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>State</label>
-                            <input type="text" class="form-control" id="state" name="state"
-                                   value="{{$business->state}}">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Country</label>
-                            <input type="text" class="form-control" id="country" name="country"
-                                   value="{{$business->country}}">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="text" class="form-control" id="phone_number" name="phone_number"
-                                   value="{{$business->phone_number}}">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
+                    <!-- /row-->
+                </form>
             </div>
             <!-- /box_general-->
             <input id="businessEditButton" type="submit" class="btn_1 medium" value="UPDATE">
