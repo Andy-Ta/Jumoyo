@@ -50,3 +50,6 @@
 
 <script src="{{ URL::asset('vendor/pickadate/picker.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('vendor/pickadate/picker.date.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('vendor/pickadate/picker.date.js') }}" type="text/javascript"></script>
+<link rel="stylesheet" href="{{ URL::asset('vendor/pickadate/themes/default.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('vendor/pickadate/themes/default.date.css') }}">

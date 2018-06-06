@@ -32,8 +32,7 @@
                                 <div class="text-center">
                                     <div class="separator"></div>
                                     <h3 style="margin: 0 0 20px 0;">No Account</h3>
-                                    <a class="btn-gray full" href="#" id="signUpNow" data-toggle="modal"
-                                       data-target="#signupModal">Register Now</a>
+                                    <a class="btn-gray full" href="register" id="signUpNow">Register Now</a>
                                 </div>
                             </div>
                         </div>
