@@ -30,7 +30,7 @@
                                     </figure>
                                 </div>
                                 <div class="col-lg-7 col-md-8">
-                                    <small>Primary care - Internist</small>
+                                    <small>{{ $service->category }}</small>
                                     <h1>{{ $service->business_name }}</h1>
                                     <span class="stars">
                                     @if(empty($reviews))
