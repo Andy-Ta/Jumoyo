@@ -217,7 +217,7 @@
                                                         @foreach ($post->comments as $comment)
                                                             <div class="single-comment">
                                                                 <div class="review-profile"><img
-                                                                            src="{{ $comment->image ? $comment->image : "img/review-icon.png" }}"
+                                                                            src="/{{ $comment->image ? $comment->image : "img/review-icon.png" }}"
                                                                             class="img-rounded"></div>
                                                                 <div class="commenter">{{ $comment->first_name . " " . $comment->last_name }}
                                                                     <span class="comment-time"
