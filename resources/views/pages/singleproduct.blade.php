@@ -265,7 +265,7 @@
                             @foreach($reviews as $value)
                                 <div class="review-box clearfix">
                                     @if($value->image !== null)
-                                        <figure class="rev-thumb"><img src="{{URL::asset($value->image)}}" alt="">
+                                        <figure class="rev-thumb"><img src="/{{URL::asset($value->image)}}" alt="">
                                         </figure>
                                     @else
                                         <figure class="rev-thumb"><img src="{{URL::asset('/img/review-icon.png')}}"
