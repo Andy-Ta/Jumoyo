@@ -87,6 +87,8 @@
                         <div class="indent_title_in">
                             <i class="pe-7s-user"></i>
                             <h3>Description</h3>
+                        </div>
+                        <div class="wrapper_indent">
                             <p>{{ $service->description }}</p>
                         </div>
                         <!-- /wrapper indent -->
@@ -96,6 +98,8 @@
                         <div class="indent_title_in">
                             <i class="pe-7s-clock"></i>
                             <h3>Business Hour</h3>
+                        </div>
+                        <div class="wrapper_indent">
                             <div id="timeDiv" class="right-details">
                             </div>
                         </div>
@@ -106,6 +110,8 @@
                         <div class="indent_title_in">
                             <i class="pe-7s-cash"></i>
                             <h3>Prices &amp; Payments</h3>
+                        </div>
+                        <div class="wrapper_indent">
                             <table class="table table-responsive table-striped">
                                 <tbody>
                                 @if($service->price != 0 && $service->price_hourly != 0)
@@ -137,19 +143,21 @@
                         <div class="indent_title_in">
                             <i class="pe-7s-photo"></i>
                             <h3>Portfolio</h3>
+                        </div>
+                        <div class="wrapper_indent">
                             <div class="carousel-slider">
                                 <div class="carousel-logo">
                                     <div class="carousel slide" id="myCarousel">
                                         <div class="carousel-inner" style="margin: 0 auto; max-width: 50%;">
                                         </div>
-                                    </div>
-                                    <div class="carousel-btns">
-                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                            <i class="glyphicon glyphicon-chevron-left"></i>
-                                        </a>
-                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                            <i class="glyphicon glyphicon-chevron-right"></i>
-                                        </a>
+                                        <div class="carousel-btns">
+                                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                                <i class="glyphicon glyphicon-chevron-left"></i>
+                                            </a>
+                                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                                <i class="glyphicon glyphicon-chevron-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -160,6 +168,8 @@
                             <div class="indent_title_in">
                                 <i class="pe-7s-news-paper"></i>
                                 <h3>Posts</h3>
+                            </div>
+                            <div class="wrapper_indent">
                                 @if (empty($data))
                                     <p> No posts </p>
                                 @else
