@@ -1186,10 +1186,6 @@ ul.thumbnails-carousel li {
     border-bottom: 1px solid #fff;
 }
 
-.filterbar {
-    border-bottom: 1px solid #D1D1D1;
-}
-
 @media (max-width: 480px) {
     .footer-left {
         float: none;
