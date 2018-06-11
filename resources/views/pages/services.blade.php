@@ -135,17 +135,6 @@
         <div class="container">
             <ul class="clearfix">
                 <li>
-                    <h6>Type</h6>
-                    <div class="switch-field">
-                        <input type="radio" id="all" name="type_user" value="all" checked>
-                        <label for="all">All</label>
-                        <input type="radio" id="services" name="type_user" value="services">
-                        <label for="services">Services</label>
-                        <input type="radio" id="businesses" name="type_user" value="businesses">
-                        <label for="businesses">Businesses</label>
-                    </div>
-                </li>
-                <li>
                     <!-- old code for the sort by -->
                     {{--<div class="col12style" id="filterpart" style="margin: 0 auto;">--}}
                         {{--<div class="row filterbar">--}}
@@ -166,12 +155,27 @@
                     {{--</div>--}}
 
                     <h6>Sort by</h6>
-                    <select name="orderby" id="selectbox">
+                    <div class="col12style" id="filterpart" style="margin: 0 auto;">
+                        <div class="row filterbar">
+                            <div class="heading filtericn">
+                                <!--<i class="fa fa-filter" id="opensidebar" aria-hidden="true"></i>
+                                <span>Filter</span>-->
+                                <ul class="breadcrumb favourite">
+                                    <li id="stars" class="sorter"><a href="#">Recommended <span></span></a></li>
+                                    <li id="reviews" class="sorter"><a href="#">Most Popular <span></span></a></li>
+                                    <li id="price" class="sorter"><a href="#">Price <span></span></a></li>
+                                    <li id="price_hourly" class="sorter"><a href="#">Hourly Price <span></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<select name="orderby" id="selectbox">
                         <option id="stars" class="sorter" value="stars">Recommended</option>
                         <option id="reviews" class="sorter" value="reviews">Most Popular</option>
                         <option id="price" class="sorter" value="price">Price</option>
                         <option id="price_hourly" class="sorter" value="price_hourly">Hourly Price</option>
                     </select>
+
                     <div id="sbHolder" class="sbHolder">
                         <a id="sbToggle" href="#" class="sbToggle"></a>
 
@@ -191,6 +195,7 @@
                         </li>
                     </ul>
                     </div>
+                    -->
                 </li>
             </ul>
         </div>
@@ -230,12 +235,12 @@
                         <div class="row" style="margin: 0;">
                             <h4 class="service"></h4>
                         </div>
-                        <ul>
-                            <!-- in case using it? -->
+                        <!--<ul>
+                             in case using it?
                             <li><a href="#0" onclick="onHtmlClick('Doctors', 2)" class="btn_listing">View on Map</a></li>
                             <li><a href="https://www.google.com/maps/dir//Downtown,+Montreal,+QC/@45.5034587,-73.6385299,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4cc91a42465421bd:0xfbb91c3e6b1f6a78!2m2!1d-73.5684895!2d45.5034801" target="_blank">Directions</a></li>
                             <li><a href="detail-page.html">Book now</a></li>
-                        </ul>
+                        </ul>-->
                     </div>
 
                     <nav aria-label="" class="add_top_20">
@@ -264,8 +269,8 @@
     @include('modals.signup')
 
     <script src="js/services.js" type="text/javascript"></script>
-    <script src="http:maps.googleapis.com/maps/api/js"></script>
-    <script src="js/map_listing.js"></script>
+    <!--<script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/map_listing.js"></script>-->
     <script> data = {!! $services !!}; </script>
 @stop
 

@@ -88,7 +88,7 @@ function display(data) {
             $(template[key]).find('.service').text(value.services_name + ' ' + price + ' ' + priceHourly);
 
             setTimeout(function(){$('#serviceContainer').append(template[key]);}, 300);
-        });
+        }, false);
     });
 }
 
