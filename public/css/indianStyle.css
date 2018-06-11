@@ -817,7 +817,7 @@ a.list-group-item.active small {
 }
 
 .col12style {
-    width: 75%;
+    width: 100%;
     float: left;
     position: relative;
     min-height: 1px;
