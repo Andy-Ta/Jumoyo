@@ -30,12 +30,14 @@
                             <label>Youtube Link</label>
                             <input type="text" name="url" id="url" class="form-control">
                         </div>
-                        <div>
-                            <label>Image</label>
+                        <div class="form-group">
+                            <label>Image</label><br>
                             <input type="file" name="image" id="image">
                         </div>
-                        <input id="postSubmit" type="submit" class="btn btn-default" value="ADD">
-                        <button type="button" class="btn btn-default modelfooter" data-dismiss="modal">CANCEL</button>
+                        <div class="modal-footer">
+                            <input id="postSubmit" type="submit" class="btn btn-primary modelfooter" value="ADD">
+                            <button type="button" class="btn btn-warning modelfooter" data-dismiss="modal">CANCEL</button>
+                        </div>
                     </div>
                 </div>
             </form>

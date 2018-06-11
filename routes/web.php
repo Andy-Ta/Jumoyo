@@ -36,6 +36,10 @@ Route::get('/search', array(
     'uses' => 'ClientController@getServices'
 ));
 
+Route::get('/register', function () {
+    return view('pages.register');
+});
+
 Route::get('/business', function () {
     return view('pages.business.schedule', ['page' => 'Schedule']);
 })->middleware('checklogged', 'checkbusiness');

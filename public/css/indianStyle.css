@@ -715,11 +715,6 @@ a.list-group-item.active small {
     padding-bottom: 40px;
 }
 
-.booking {
-    position: relative;
-    padding: 0px;
-}
-
 .bookingbtn {
     position: absolute;
     bottom: 5px;
@@ -1221,11 +1216,6 @@ ul.thumbnails-carousel li {
     font-family: 'open sans';
     overflow-x: hidden; }*/
 
-img {
-    height: 100%;
-    max-width: 100%;
-}
-
 .preview {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1330,10 +1320,6 @@ img {
 
 .checked, .price span {
     color: #ff9f1a;
-}
-
-.product-title, .rating, .product-description, .price, .vote, .sizes {
-    margin-bottom: 15px;
 }
 
 .product-title {
@@ -1568,7 +1554,6 @@ input {
 
 .post {
     text-align: left;
-    /*    padding: 15px 15px 40px;*/
 }
 
 .post img {
@@ -1982,7 +1967,8 @@ a#loginuser {
 
 .bg-no-overlayreview {
     background-size: cover;
-    background-image: url("../img/main-bg.jpg");
+    /*background-image: url("../img/main-bg.jpg");*/
+    background-color: #373869;
     color: #fff;
     padding-top: 80px;
     padding-bottom: 0px;
@@ -2129,10 +2115,6 @@ img.header-avatar.img-circle.ml10 {
     margin: 40px auto;
     width: 50%;
     border-bottom: 1px solid #e2e2e2;
-}
-
-.full {
-    width: 100%;
 }
 
 .separation-or {

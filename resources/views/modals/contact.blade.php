@@ -35,8 +35,10 @@
                                 <input type="file" name="image" id="image" class="form-style-base" accept="image/gif, image/jpeg, image/png">
                             </div>
                         </div>
-                        <input type="submit" id="addContactButton" class="btn btn-default" value="ADD"/>
-                        <button type="button" class="btn btn-default modelfooter" data-dismiss="modal">CANCEL</button>
+                        <div class="modal-footer">
+                            <input type="submit" id="addContactButton" class="btn btn-primary modelfooter" value="ADD"/>
+                            <button type="button" class="btn btn-warning modelfooter" data-dismiss="modal">CANCEL</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -59,11 +61,11 @@
                         <!--<div class="col-md-12">-->
                         <h4>Are you sure you want to delete ?</h4>
                         </br>
-                        <form>
-                        <span><a id="removeContact" href="/removeContact/{{$contact->id}}" class="btn btn-default btn-danger"
-                                 role="button"> DELETE </a></span>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-                        </form>
+                        <div class="modal-footer">
+                            <a id="removeContact" href="/removeContact/{{$contact->id}}" class="btn btn-default btn-danger"
+                               role="button"> DELETE </a>
+                            <button type="button" class="btn btn-primary modelfooter" data-dismiss="modal">CANCEL</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,9 +114,10 @@
                                            accept="image/gif, image/jpeg, image/png">
                                 </div>
                             </div>
-                            <input type="submit" id="editContactButton" class="btn btn-default" value="CHANGE"/>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL
-                            </button>
+                            <div class="modal-footer">
+                                <input type="submit" id="editContactButton" class="btn btn-primary modelfooter" value="CHANGE"/>
+                                <button type="button" class="btn btn-warning modelfooter" data-dismiss="modal">CANCEL</button>
+                            </div>
                         </form>
                     </div>
                 </div>

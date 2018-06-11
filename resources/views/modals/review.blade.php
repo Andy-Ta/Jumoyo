@@ -12,7 +12,7 @@
                     <div class="form-group"><textarea class="form-control" name="review" id="review"></textarea></div>
                     <label>Rating</label>
                     <div class="form-group">
-                        <fieldset class="rating" name="rating">
+                        <fieldset class="rating-modal" name="rating">
                             <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                             <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
                             <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
