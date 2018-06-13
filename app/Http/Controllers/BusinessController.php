@@ -172,17 +172,16 @@ class BusinessController extends Controller
 
     public function editMyService(ServiceEditRequest $request)
     {
-        $serviceId = $request->get('serviceId'); // Test
+        $serviceId = $request->input('serviceId'); // Test
         $category = $request->input('category');
         $name = $request->input('name');
         $price = $request->input('price');
         $priceHourly = $request->input('priceHourly');
         $description = $request->input('desc');
 
-        if($this->businessGateway->editMyService($serviceId, $category, $name, $price, $priceHourly, $description))
-            return response('Success.', 200);
-        else
-            return abort(400, "An error occurred during the update.");
+        $this->businessGateway->editMyService($serviceId, $category, $name, $price, $priceHourly, $description);
+
+        return response('Success.', 200);
     }
 
     public function services(ServiceRequest $request) {

@@ -28,8 +28,8 @@ class ServiceEditRequest extends FormRequest
         return [
             'name' => 'required|regex:/^[\w ,.\'-]+$/i|max:255',
             'category' => "required|regex:/^[\w ,.'-]+$/i|max:255",
-            'price' => 'required|regex:/^[\d\.]+$/i|max:20',
-            'priceHourly' => 'required|regex:/^[\d\.]+$/i|max:20',
+            'price' => 'regex:/^[\d\.]+$/i|max:20',
+            'priceHourly' => 'regex:/^[\d\.]+$/i|max:20',
             'desc' => ['required', 'regex:/^([\w\W]+(?:. |-| |\'))*[\w\W]*$/i', 'max:10000']
         ];
     }

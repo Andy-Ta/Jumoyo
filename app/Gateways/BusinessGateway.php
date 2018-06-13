@@ -46,24 +46,21 @@ class BusinessGateway
     }
 
     public function editMyService($serviceId, $category, $name, $price, $priceHourly, $desc) {
-        $businessId = DB::table('businesses')->where('client', session()->get('id'))->first()->id;
 
-        //$bHId = DB::table('services')->where('id', $serviceId)->value('business_hours');
-        //$bHId = $this->submitBusinessHours($businessHours);
+        $query = "UPDATE services SET name = '$name', category = '$category', price = $price, price_hourly = $priceHourly, description = '$desc' WHERE id = $serviceId;";
 
-        return DB::table('services')->
+        return DB::select($query);
+        /*return DB::table('services')->
             where('id', $serviceId)->
             update(array(
                 "name"=>$name,
                 "category"=>$category,
                 "price"=>$price,
                 "price_hourly"=>$priceHourly,
-                "description"=>$desc,
-                "business"=>$businessId
-                //"business_hours"=>$bHId
-                //"business_hours"=>$businessHours
+                "description"=>$desc
             )
-        );
+        );*/
+
     }
 
     private function submitBusinessHours($businessHours) {

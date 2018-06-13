@@ -57,6 +57,7 @@
                         <div class="col-md-6 text-right businessweekleft"><h4>Please reconfirm your business hours.</h4></div>
                     </div>
                     <input id="hoursInput" type="hidden" name="businessHour" />-->
+                    <input name="serviceId" type="hidden" value="{{ $data->id }}" />
                 </form>
             </div>
 
