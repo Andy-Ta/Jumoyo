@@ -109,6 +109,7 @@ class MobileController extends Controller
         $name = $request->input('id');
         $json = new stdClass();
         $json->data = $this->clientGateway->getService($name);
+        $json->data->image_url = $this->clientGateway->getImage($name);
 
         return response()->json($json);
     }
@@ -287,4 +288,52 @@ class MobileController extends Controller
         }
     }
 
+    //Favorite related
+    public function favService(Request $request) {
+        $clientsId = $request->input('id');
+        $serviceId = $request->input('service');
+        $clientsId = $this->getIDFromToken($clientsId);
+
+        $json = new stdClass();
+        $json->data = $this->clientGateway->fav($serviceId, $clientsId);
+
+        if(!empty($json->data)){
+            return response()->json($json);
+        } else {
+            $json->error = "Error trying to favorite.";
+            return response()->json($json);
+        }
+    }
+
+    public function unfavService(Request $request) {
+        $clientsId = $request->input('id');
+        $serviceId = $request->input('service');
+        $clientsId = $this->getIDFromToken($clientsId);
+
+        $json = new stdClass();
+        $json->data = $this->clientGateway->unfav($serviceId, $clientsId);
+
+        if (!empty($json->data)) {
+            return response()->json($json);
+        } else {
+            $json->error = "Error trying to unfavorite.";
+            return response()->json($json);
+        }
+    }
+
+    public function isFavService(Request $request) {
+        $clientsId = $request->input('id');
+        $serviceId = $request->input('service');
+        $clientsId = $this->getIDFromToken($clientsId);
+
+        $json = new stdClass();
+        $json->data = $this->clientGateway->isMobileFav($serviceId, $clientsId);
+
+        if (!empty($json->data)) {
+            return response()->json($json);
+        } else {
+            $json->error = "Error trying to check favorite.";
+            return response()->json($json);
+        }
+    }
 }

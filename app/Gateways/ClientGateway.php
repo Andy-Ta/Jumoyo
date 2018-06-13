@@ -459,6 +459,18 @@ class ClientGateway
         }
     }
 
+    public function isMobileFav($service_id, $sessionId) {
+        $result = DB::table('favorites')->where([
+            ['service_id', $service_id],
+            ['client_id', $sessionId]
+        ])->first();
+        if(!empty($result)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getFavorites($id){
         $data = DB::select('
             SELECT

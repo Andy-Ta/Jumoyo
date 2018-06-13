@@ -45,4 +45,10 @@ Route::prefix('mobile')->group(function() {
     Route::post('/getsearchescategory', 'MobileController@getServicesCategory');
 
     Route::post('/getproduct', 'MobileController@getProduct');
+
+    Route::post('/favorite', 'MobileController@favService');
+
+    Route::post('/unfavorite', 'MobileController@unfavService');
+
+    Route::post('/isfavorite', 'MobileController@isFavService');
 });
