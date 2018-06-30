@@ -47,9 +47,9 @@ class BusinessGateway
 
     public function editMyService($serviceId, $category, $name, $price, $priceHourly, $desc) {
         if($price == "")
-            $price = null;
+            $price = "NULL";
         if($priceHourly == "")
-            $priceHourly = null;
+            $priceHourly = "NULL";
 
         $query = "UPDATE services SET name = '$name', category = '$category', price = $price, price_hourly = $priceHourly, description = '$desc' WHERE id = $serviceId;";
 
