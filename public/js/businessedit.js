@@ -44,6 +44,7 @@ $(function() {
         var request = $.post('/business/businessinfo/update', $('#businessEditForm').serialize());
 
         request.done(function() {
+            alert("Success");
             window.location = "/business/businessinfo";
         });
 

@@ -25,7 +25,7 @@
             <br>
             <div class="box_general">
                 <div class="header_box">
-                    <h2><i class="fa fa-suitcase"></i>My services</h2>
+                    <h2><i class="fa fa-suitcase"></i>My Services</h2>
                 </div>
                 <div class="list_general">
                     @if(!empty($data))

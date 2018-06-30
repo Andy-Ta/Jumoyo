@@ -60,8 +60,9 @@ $(function(){
         var request = $.post('/changePassword', $('#changePswForm').serialize());
 
         request.done(function() {
-            window.location.replace('/');
-            $('#loginModal').modal('show');
+            alert("Success");
+            //window.location.replace('/');
+            $('#changePswModal').modal('hide');
         });
 
         request.fail(function(jqXHR) {

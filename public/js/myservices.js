@@ -1,6 +1,12 @@
 // This JS is responsible to display the data of the services
 
 $(function() {
+    $(".service").click(function(e) {
+        e.preventDefault();
+        if(confirm("Are you sure you want to delete this service?")) {
+            window.location.href = $(this).attr("href");
+        }
+    });
     /*
     $("form#postForm").submit(function(e) {
         e.preventDefault();

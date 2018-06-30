@@ -10,7 +10,7 @@ $(function() {
         var request = $.post('/business/myservices/edit/do', $('#serviceEditForm').serialize());
 
         request.done(function () {
-            window.location = "/business/myservices";
+            alert("Success");
         });
 
         request.fail(function (jqXHR) {

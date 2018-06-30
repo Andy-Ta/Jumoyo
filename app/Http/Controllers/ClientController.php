@@ -160,7 +160,7 @@ class ClientController extends Controller
 
         if(Hash::check($currentPassword, $psw)){
             if($this->clientGateway->updatePsw($id, $password)){
-                return redirect('/logout');
+                return response('Success.', 200);
             } else {
                 return abort(400, "An error occurred while changing password.");
             }
